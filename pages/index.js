@@ -10,17 +10,17 @@ export default function Home() {
       </Head>
 
       <main style={{ display: "flex", flexDirection: "column" }}>
-        <h1>Home</h1>
+        <h1>Home.</h1>
         <Link href="/">
           <a>Notificación</a>
         </Link>
-        <Link href="/">
+        <Link href="/reuniones">
           <a>Reuniones</a>
         </Link>
-        <Link href="/">
+        <Link href="/expensas">
           <a>Expensas</a>
         </Link>
-        <Link href="/">
+        <Link href="/calendario">
           <a>Calendario</a>
         </Link>
       </main>

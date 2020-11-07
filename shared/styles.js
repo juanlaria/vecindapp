@@ -58,11 +58,17 @@ export const globalStyles = (
         font-size: 20px;
       }
 
+      html {
+        background: var(--color-black);
+      }
+
       body {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        background: var(--color-black);
+        max-width: 500px;
+        margin: 0 auto;
       }
 
       #__next {
@@ -71,7 +77,11 @@ export const globalStyles = (
         height: auto;
         min-height: 100%;
         width: 100%;
-        max-width: 500px;
+      }
+
+      header {
+        width: 100%;
+        background: var(--color-white);
       }
       
       h1,

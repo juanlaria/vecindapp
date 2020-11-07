@@ -2,19 +2,20 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
-export default function SignIn() {
+export default function Meetings() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Ingresar. Vecindapp</title>
+        <title>Reuniones. Vecindapp</title>
       </Head>
 
       <main style={{ display: "flex", flexDirection: "column" }}>
-        <h1>Ingresar.</h1>
-        <p>E-mail</p>
-        <p>Contraseña</p>
-        <Link href="/">
-          <a>Continuar</a>
+        <h1>Reuniones.</h1>
+        <Link href="/temas">
+          <a>Ir a la lista de temas</a>
+        </Link>
+        <Link href="/calendario">
+          <a>Ir al calendario</a>
         </Link>
       </main>
     </div>

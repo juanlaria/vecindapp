@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Welcome() {
   return (
     <div className={styles.container}>
       <Head>
@@ -10,7 +10,7 @@ export default function Home() {
       </Head>
 
       <main style={{display: "flex", flexDirection: "column"}}> 
-       <h1>Bienvenida</h1>
+       <h1>Bienvenida.</h1>
         <Link href="/ingresar">
         <a>Ingresar</a>
         </Link>
