@@ -22,11 +22,7 @@ export const globalStyles = (
         --color-darkYellow: #edbb0c;
         --color-red: #ff0808;
         --border-radius: 8px;
-        --header-size: 3rem;
-        @media (min-width: ${screenMDmin}) {
-          --header-size: 5rem;
-        }
-        --font-primary: 'Hind', Helvetica, Arial, sans-serif;
+        --font-primary: Roboto, Helvetica, Arial, sans-serif;
         --elevation-z1: 0 2px 1px -1px rgba(33, 33, 33, 0.1),
           0 1px 1px 0 rgba(33, 33, 33, 0.07), 0 1px 3px 0 rgba(33, 33, 33, 0.05);
         --elevation-z2: 0 3px 1px -2px rgba(33, 33, 33, 0.1),
@@ -51,32 +47,6 @@ export const globalStyles = (
       * {
         box-sizing: border-box;
       }
-      html {
-        @font-face {
-          font-family: 'Hind';
-          font-weight: 400;
-          src: local('Hind Regular'), local('Hind-Regular'),
-            url('/static/fonts/Hind-Regular.woff2') format('woff2'),
-            url('/static/fonts/Hind-Regular.ttf') format('truetype');
-          font-display: swap;
-        }
-        @font-face {
-          font-family: 'Hind';
-          font-weight: 600;
-          src: local('Hind SemiBold'), local('Hind-SemiBold'),
-            url('/static/fonts/Hind-SemiBold.woff2') format('woff2'),
-            url('/static/fonts/Hind-SemiBold.ttf') format('truetype');
-          font-display: swap;
-        }
-        @font-face {
-          font-family: 'Hind';
-          font-weight: 700;
-          src: local('Hind Bold'), local('Hind-Bold'),
-            url('/static/fonts/Hind-Bold.woff2') format('woff2'),
-            url('/static/fonts/Hind-Bold.ttf') format('truetype');
-          font-display: swap;
-        }
-      }
       html,
       body,
       #__next {
@@ -87,113 +57,23 @@ export const globalStyles = (
         font-family: var(--font-primary);
         font-size: 20px;
       }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-black);
+      }
+
       #__next {
         display: flex;
         flex-direction: column;
         height: auto;
         min-height: 100%;
+        width: 100%;
+        max-width: 500px;
       }
-      #page {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        header + & {
-          padding-top: calc(var(--header-size) * 1.25);
-        }
-        .back-section {
-          padding-top: 2.8rem;
-          padding-bottom: 2rem;
-          @media (max-width: ${screenSMmax}) {
-            padding-top: 1.8rem;
-            padding-bottom: 1rem;
-          }
-          a,
-          button {
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1.2rem;
-            line-height: 1.33;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            &:before {
-              content: '';
-              display: block;
-              height: 12px;
-              width: 6px;
-              mask: url('/images/chevron.svg');
-              mask-size: cover;
-              margin-right: 0.85rem;
-              background: var(--color-yellow);
-            }
-          }
-        }
-        #main {
-          flex: 1;
-        }
-        .component {
-          padding: 2.2rem 0;
-          @media (max-width: ${screenSMmax}) {
-            padding: 2rem 0;
-          }
-          &:first-of-type {
-            padding-top: 0;
-            padding-bottom: 0;
-          }
-          &:last-of-type {
-            padding-bottom: 4.4rem;
-          }
-        }
-        .title {
-          @media (max-width: ${screenLGmin}) {
-            font-size: 1.6rem;
-          }
-        }
-        &.-error-page {
-          #main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            small {
-              font-size: 1rem;
-              line-height: 1.6;
-              text-align: center;
-              color: var(--color-grey);
-              margin-bottom: 0.8rem;
-            }
-            h1 {
-              font-size: 2.4rem;
-              line-height: 1.67;
-              text-align: center;
-            }
-            .button {
-              margin-top: 1.2rem;
-            }
-          }
-        }
-      }
-      #main {
-        header + & {
-          padding-top: calc(var(--header-size) * 1.25);
-        }
-      }
-      .component {
-        position: relative;
-        z-index: 1;
-        padding: 4.4rem 0;
-        background-color: var(--color-white);
-        @media (max-width: ${screenSMmax}) {
-          padding: 2rem 0;
-        }
-        &.-grey {
-          background-color: var(--color-lightGrey);
-        }
-        .anchor {
-          position: absolute;
-          top: calc(var(--header-size) * -1);
-        }
-      }
+      
       h1,
       h2,
       h3,
@@ -203,17 +83,6 @@ export const globalStyles = (
       h7 {
         font-weight: 600;
         margin: 0;
-      }
-      .title {
-        font-size: 2.4rem;
-        line-height: 1.25;
-        margin-bottom: 0.4em;
-        @media (max-width: ${screenMDmax}) {
-          font-size: 2rem;
-        }
-        @media (max-width: ${screenSMmax}) {
-          font-size: 1.6rem;
-        }
       }
       p,
       ul {
@@ -354,23 +223,6 @@ export const basicStyles = css`
   padding: 1rem 0.5rem;
 `;
 
-export const hoverStyles = css`
-  &:hover {
-    color: white;
-    background-color: lightgray;
-    border-color: aqua;
-    box-shadow: -15px -15px 0 0 aqua, -30px -30px 0 0 cornflowerblue;
-  }
-`;
-export const bounce = keyframes`
-  from {
-    transform: scale(1.01);
-  }
-  to {
-    transform: scale(0.99);
-  }
-`;
-
 export const Container = styled('div')`
   ${containerStyles};
 `;
@@ -381,20 +233,4 @@ export const Cloak = styled('div')`
 
 export const Basic = styled('div')`
   ${basicStyles};
-`;
-
-export const Combined = styled('div')`
-  ${basicStyles};
-  ${hoverStyles};
-  & code {
-    background-color: linen;
-  }
-`;
-export const Animated = styled('div')`
-  ${basicStyles};
-  ${hoverStyles};
-  & code {
-    background-color: linen;
-  }
-  animation: ${props => props.animation} 0.2s infinite ease-in-out alternate;
 `;
