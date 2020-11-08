@@ -8,8 +8,8 @@ export default function Meetings() {
       <Head>
         <title>Reuniones. Vecindapp</title>
       </Head>
-
-      <main style={{ display: "flex", flexDirection: "column" }}>
+      <header>Header</header>
+      <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <h1>Reuniones.</h1>
         <Link href="/temas">
           <a>Ir a la lista de temas</a>

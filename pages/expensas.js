@@ -8,8 +8,8 @@ export default function Expenses() {
       <Head>
         <title>Expensas. Vecindapp</title>
       </Head>
-
-      <main style={{ display: "flex", flexDirection: "column" }}>
+      <header>Header</header>
+      <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <h1>Expensas.</h1>
       </main>
     </div>

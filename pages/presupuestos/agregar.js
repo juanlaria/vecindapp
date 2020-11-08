@@ -8,8 +8,8 @@ export default function AddQuote() {
       <Head>
         <title>Nuevo presupuesto. Vecindapp</title>
       </Head>
-
-      <main style={{ display: "flex", flexDirection: "column" }}>
+      <header>Header</header>
+      <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <h1>Nuevo presupuesto.</h1>
         <p>Nombre de la empresa/Persona</p>
         <p>Descripción</p>

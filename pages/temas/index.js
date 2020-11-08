@@ -8,8 +8,8 @@ export default function Topics() {
       <Head>
         <title>Lista de temas. Vecindapp</title>
       </Head>
-
-      <main style={{ display: "flex", flexDirection: "column" }}>
+      <header>Header</header>
+      <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <h1>Lista de temas.</h1>
         <Link href="/presupuestos">
           <a>Lista de presupuestos</a>

@@ -8,8 +8,8 @@ export default function Welcome() {
       <Head>
         <title>Bienvenida. Vecindapp</title>
       </Head>
-
-      <main style={{display: "flex", flexDirection: "column"}}> 
+      <header>Header</header>
+      <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
        <h1>Bienvenida.</h1>
         <Link href="/ingresar">
         <a>Ingresar</a>

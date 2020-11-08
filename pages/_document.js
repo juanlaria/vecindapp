@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
 export default class MyDocument extends Document {
@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html lang={this.lang} dir="ltr">
+      <Html lang={this.lang} dir="ltr">
         <meta name="application-name" content="Vecindapp" />
         <meta name="theme-color" content="#FFFFFF" />
 
@@ -33,11 +33,10 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
-            <header>Header</header>
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

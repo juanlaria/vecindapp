@@ -8,8 +8,8 @@ export default function Quotes() {
       <Head>
         <title>Lista de presupuestos. Vecindapp</title>
       </Head>
-
-      <main style={{ display: "flex", flexDirection: "column" }}>
+      <header>Header</header>
+      <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <h1>Lista de presupuestos.</h1>
         <Link href="#">
           <a>Ver archivos adjuntos</a>

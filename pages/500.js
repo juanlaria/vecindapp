@@ -8,8 +8,8 @@ export default function Error404() {
       <Head>
         <title>Error interno. Vecindapp</title>
       </Head>
-
-      <main style={{ display: "flex", flexDirection: "column" }}>
+      <header>Header</header>
+      <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <h1>Error interno.</h1>
         <Link href="/">
           <a>Volver al inicio</a>

@@ -8,8 +8,8 @@ export default function SignIn() {
       <Head>
         <title>Ingresar. Vecindapp</title>
       </Head>
-
-      <main style={{ display: "flex", flexDirection: "column" }}>
+      <header>Header</header>
+      <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <h1>Ingresar.</h1>
         <p>E-mail</p>
         <p>Contraseña</p>

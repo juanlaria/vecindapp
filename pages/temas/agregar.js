@@ -8,8 +8,8 @@ export default function AddTopic() {
       <Head>
         <title>Nuevo tema. Vecindapp</title>
       </Head>
-
-      <main style={{ display: "flex", flexDirection: "column" }}>
+      <header>Header</header>
+      <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <h1>Nuevo tema.</h1>
         <p>Título</p>
         <p>Descripción</p>
