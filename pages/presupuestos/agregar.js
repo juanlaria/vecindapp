@@ -1,15 +1,14 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import styles from '../../styles/Home.module.css'
+import Head from 'next/head';
+import Link from 'next/link';
 
 export default function AddQuote() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Nuevo presupuesto. Vecindapp</title>
       </Head>
       <header>Header</header>
-      <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+      <main style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <h1>Nuevo presupuesto.</h1>
         <p>Nombre de la empresa/Persona</p>
         <p>Descripción</p>
@@ -22,5 +21,5 @@ export default function AddQuote() {
         </Link>
       </main>
     </div>
-  )
+  );
 }

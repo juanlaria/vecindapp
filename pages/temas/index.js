@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import Topic from '../../components/Topic';
-import styles from '../../styles/Home.module.css';
 
 const topicsData = [
   {
@@ -21,7 +20,7 @@ const topicsData = [
 
 export default function Topics() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Lista de temas. Vecindapp</title>
       </Head>

@@ -1,10 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../../styles/Home.module.css'
 
 export default function AddTopic() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Nuevo tema. Vecindapp</title>
       </Head>
