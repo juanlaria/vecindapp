@@ -1,10 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
 
 export default function Meetings() {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Reuniones. Vecindapp</title>
       </Head>
@@ -18,6 +17,6 @@ export default function Meetings() {
           <a>Ir al calendario</a>
         </Link>
       </main>
-    </div>
+    </>
   )
 }

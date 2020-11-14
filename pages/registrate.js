@@ -1,10 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
 
 export default function SignUp() {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Ingresar. Vecindapp</title>
       </Head>
@@ -17,6 +16,6 @@ export default function SignUp() {
           <a>Continuar</a>
         </Link>
       </main>
-    </div>
+    </>
   )
 }

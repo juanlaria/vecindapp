@@ -1,10 +1,8 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import styles from '../styles/Home.module.css'
 
 export default function Calendar() {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Calendario. Vecindapp</title>
       </Head>
@@ -12,6 +10,6 @@ export default function Calendar() {
       <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <h1>Calendario.</h1>
       </main>
-    </div>
+    </>
   )
 }

@@ -22,7 +22,9 @@ export const globalStyles = (
         --color-darkYellow: #edbb0c;
         --color-red: #ff0808;
         --border-radius: 8px;
-        --font-primary: Roboto, Helvetica, Arial, sans-serif;
+        --font-primary: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+          Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+          sans-serif;
         --elevation-z1: 0 2px 1px -1px rgba(33, 33, 33, 0.1),
           0 1px 1px 0 rgba(33, 33, 33, 0.07), 0 1px 3px 0 rgba(33, 33, 33, 0.05);
         --elevation-z2: 0 3px 1px -2px rgba(33, 33, 33, 0.1),
@@ -53,7 +55,6 @@ export const globalStyles = (
         margin: 0;
         background: var(--color-white);
         color: var(--color-black);
-        height: 100%;
         font-family: var(--font-primary);
         font-size: 20px;
       }
@@ -74,16 +75,19 @@ export const globalStyles = (
       #__next {
         display: flex;
         flex-direction: column;
-        height: auto;
-        min-height: 100%;
+        min-height: 100vh;
         width: 100%;
+      }
+
+      main {
+        flex: 1;
       }
 
       header {
         width: 100%;
         background: var(--color-white);
       }
-      
+
       h1,
       h2,
       h3,
@@ -175,7 +179,11 @@ export const globalStyles = (
 );
 
 export const containerStyles = css`
+  flex: 1 auto;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 0.75rem;

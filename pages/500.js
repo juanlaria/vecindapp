@@ -1,10 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
 
 export default function Error404() {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Error interno. Vecindapp</title>
       </Head>
@@ -15,6 +14,6 @@ export default function Error404() {
           <a>Volver al inicio</a>
         </Link>
       </main>
-    </div>
+    </>
   )
 }
