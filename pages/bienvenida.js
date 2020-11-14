@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styled from '@emotion/styled';
-import { Button, Link } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
 import { default as CustomLink } from '../components/Link';
 import { Container } from '../shared/styles';
@@ -41,11 +41,10 @@ const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-bottom: 0.8rem;
-`;
 
-const LinkWrapper = styled(ButtonWrapper)`
-  align-items: center;
+  & + & {
+    margin-top: 0.8rem;
+  }
 `;
 
 const ButtonText = styled.span`
@@ -117,11 +116,11 @@ export default function Welcome() {
                 <ButtonText>Ingresar con Facebook</ButtonText>
               </Button>
             </ButtonWrapper>
-            <LinkWrapper>
-              <Link color="primary" component={CustomLink} href="/registrate">
+            <ButtonWrapper>
+              <Button color="primary" component={CustomLink} href="/registrate">
                 Registrate
-              </Link>
-            </LinkWrapper>
+              </Button>
+            </ButtonWrapper>
           </Wrapper>
         </Container>
       </Main>

@@ -83,11 +83,6 @@ export const globalStyles = (
         flex: 1;
       }
 
-      header {
-        width: 100%;
-        background: var(--color-white);
-      }
-
       h1,
       h2,
       h3,
@@ -95,7 +90,7 @@ export const globalStyles = (
       h5,
       h6,
       h7 {
-        font-weight: 600;
+        font-weight: 400;
         margin: 0;
       }
       p,
