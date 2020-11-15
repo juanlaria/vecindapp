@@ -115,7 +115,7 @@ export default function Meetings() {
                       <CardContent>
                         <CardTitle>
                           <CardTitleText>Reunión de consorcio</CardTitleText>
-                          <CardTitleDate datetime="2020-11-16T22:00:00.000Z">
+                          <CardTitleDate dateTime="2020-11-16T22:00:00.000Z">
                             16 de Noviembre - 19 hs.
                           </CardTitleDate>
                         </CardTitle>
@@ -135,7 +135,7 @@ export default function Meetings() {
                               size="small"
                               color="primary"
                               component={CustomLink}
-                              href="/reunion/vivo"
+                              href="/reunion/vivo/ingresar"
                             >
                               Ir a la reunión
                             </Button>
@@ -155,7 +155,7 @@ export default function Meetings() {
                     <CardContent>
                       <CardTitle>
                         <CardTitleText>Reunión extraordinaria</CardTitleText>
-                        <CardTitleDate datetime="2020-07-05T22:00:00.000Z">
+                        <CardTitleDate dateTime="2020-07-05T22:00:00.000Z">
                           05 de Julio - 19 hs.
                         </CardTitleDate>
                       </CardTitle>
@@ -184,7 +184,7 @@ export default function Meetings() {
                     <CardContent>
                       <CardTitle>
                         <CardTitleText>Reunión de consorcio</CardTitleText>
-                        <CardTitleDate datetime="2020-04-11T22:00:00.000Z">
+                        <CardTitleDate dateTime="2020-04-11T22:00:00.000Z">
                           11 de Abril - 19 hs.
                         </CardTitleDate>
                       </CardTitle>
