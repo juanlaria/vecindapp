@@ -25,6 +25,7 @@ const Content = styled.div`
   flex: 1;
   display: flex;
   align-items: flex-start;
+  padding: 0 0.8rem;
 `;
 
 const DrawerNav = styled.nav`

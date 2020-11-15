@@ -18,9 +18,8 @@ export const globalStyles = (
         --color-darkGrey: #797979;
         --color-black: #212121;
         --color-white: #ffffff;
-        --color-yellow: #ffcb08;
-        --color-darkYellow: #edbb0c;
         --color-red: #ff0808;
+        --color-primary: #1148C2;
         --border-radius: 8px;
         --font-primary: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
           Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
@@ -91,13 +90,14 @@ export const globalStyles = (
       h6,
       h7 {
         font-weight: 400;
+        line-height: 1.25;
         margin: 0;
       }
       p,
       ul {
         margin: 0;
         font-size: 1rem;
-        line-height: 1.6;
+        line-height: 1.25;
         color: var(--color-grey);
         @media (max-width: ${screenSMmax}) {
           font-size: 0.8rem;
