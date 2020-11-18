@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import {
@@ -11,6 +12,7 @@ import {
 } from '@material-ui/core';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MenuIcon from '@material-ui/icons/Menu';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import { default as CustomLink } from './Link';
 
@@ -57,7 +59,8 @@ const ButtonText = styled.span`
   flex: 1;
 `;
 
-const Header = ({ active, children, window }) => {
+const Header = ({ hasMenu, active, children, window }) => {
+  const router = useRouter();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const container =
     window !== undefined ? () => window().document.body : undefined;
@@ -67,19 +70,31 @@ const Header = ({ active, children, window }) => {
       <AppBar position="sticky">
         <Toolbar>
           <ToolbarInner>
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={() => setIsDrawerOpen(true)}
-            >
-              <MenuIcon />
-            </IconButton>
+            {hasMenu ? (
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                onClick={() => setIsDrawerOpen(true)}
+              >
+                <MenuIcon />
+              </IconButton>
+            ) : (
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="go back"
+                onClick={() => router.back()}
+              >
+                <ArrowBackIcon />
+              </IconButton>
+            )}
             <Content>{children}</Content>
             <IconButton
               aria-label="display more actions"
               edge="end"
               color="inherit"
+              onClick={() => alert('Botón deshabilitado')}
             >
               <NotificationsIcon />
             </IconButton>
@@ -125,7 +140,6 @@ const Header = ({ active, children, window }) => {
               </NavItem>
               <NavItem>
                 <Button
-                  variant="contained"
                   color="primary"
                   component={CustomLink}
                   href="/reuniones"
@@ -135,7 +149,6 @@ const Header = ({ active, children, window }) => {
               </NavItem>
               <NavItem>
                 <Button
-                  variant="contained"
                   color="primary"
                   onClick={() => alert('Botón deshabilitado')}
                 >
@@ -144,7 +157,6 @@ const Header = ({ active, children, window }) => {
               </NavItem>
               <NavItem>
                 <Button
-                  variant="contained"
                   color="primary"
                   onClick={() => alert('Botón deshabilitado')}
                 >
@@ -184,7 +196,17 @@ const Header = ({ active, children, window }) => {
 };
 
 Header.propTypes = {
+  hasMenu: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  window: PropTypes.func,
+  active: PropTypes.string,
 };
+
+Header.defaultProps = {
+  hasMenu: true,
+  window: undefined,
+  children: undefined,
+  active: undefined,
+}
 
 export default Header;

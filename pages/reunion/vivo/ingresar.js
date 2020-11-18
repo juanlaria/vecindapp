@@ -1,15 +1,17 @@
+import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import Head from 'next/head';
 import styled from '@emotion/styled';
-import { IconButton, Container, Fab } from '@material-ui/core';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { Button, IconButton, Container } from '@material-ui/core';
 import VideocamIcon from '@material-ui/icons/Videocam';
 import VideocamOffIcon from '@material-ui/icons/VideocamOff';
 import MicIcon from '@material-ui/icons/Mic';
 import MicOffIcon from '@material-ui/icons/MicOff';
 
+
 import { default as CustomLink } from '../../../components/Link';
-import { useState } from 'react';
+import Header from '../../../components/Header';
 
 const Main = styled.main`
   padding: 1.2rem 0;
@@ -24,26 +26,39 @@ const TitleWrapper = styled.div`
   max-width: calc(100% * (2 / 3));
   text-align: center;
   margin: 0 auto;
+  margin-bottom: 0.6rem;
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1rem;
 `;
 
 const Subtitle = styled.h2`
-  font-size: 1.2rem;
+  font-size: 0.7rem;
+`;
+
+const ImageWrapper = styled.div`
+  margin: 0 auto;
+`;
+
+const ButtonWrapper = styled.div`
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
 `;
 
 const MeetingActions = styled.div`
-  max-width: calc(100% * (2 / 3));
+  flex: 1;
+  width: 100%;
   text-align: center;
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 0.8rem;
   text-align: center;
 `;
 
 const MeetingDetail = styled.p`
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   margin: 0.6rem auto;
 `;
 
@@ -52,7 +67,7 @@ const MeetingSettings = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 0.8rem;
-  margin: 0.6rem auto;
+  margin: 0.8rem auto;
 `;
 
 const SettingWrapper = styled.div`
@@ -71,18 +86,9 @@ export default function EnterMeeting() {
       <Head>
         <title>Reunión de consorcio en vivo. Vecindapp</title>
       </Head>
+      <Header hasMenu={false} />
       <Main>
         <Container>
-          <header>
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="go back"
-              onClick={() => router.back()}
-            >
-              <ArrowBackIcon />
-            </IconButton>
-          </header>
           <Wrapper>
             <TitleWrapper>
               <Title>Reunión de consorcio</Title>
@@ -92,15 +98,25 @@ export default function EnterMeeting() {
                 </time>
               </Subtitle>
             </TitleWrapper>
+            <ImageWrapper>
+              <Image
+                src="/images/illustrations/meetings.png"
+                alt=""
+                width="218"
+                height="95"
+              />
+            </ImageWrapper>
             <MeetingActions>
-              <Fab
-                color="primary"
-                variant="extended"
-                component={CustomLink}
-                href="/reunion/vivo"
-              >
-                Ingresar ahora
-              </Fab>
+              <ButtonWrapper>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  component={CustomLink}
+                  href="/reunion/vivo"
+                >
+                  Ingresar ahora
+                </Button>
+              </ButtonWrapper>
               <MeetingDetail>Te están esperando 23 vecinos</MeetingDetail>
               <MeetingSettings>
                 <SettingWrapper>

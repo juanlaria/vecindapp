@@ -14,12 +14,12 @@ export const globalStyles = (
     styles={css`
       :root {
         --color-grey: #4f4c4c;
-        --color-lightGrey: #f8f8f8;
+        --color-lightGrey: #c4c4c4;
         --color-darkGrey: #797979;
         --color-black: #212121;
         --color-white: #ffffff;
         --color-red: #ff0808;
-        --color-primary: #1148C2;
+        --color-primary: #1148c2;
         --border-radius: 8px;
         --font-primary: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
           Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
@@ -89,7 +89,7 @@ export const globalStyles = (
       h5,
       h6,
       h7 {
-        font-weight: 400;
+        font-weight: 600;
         line-height: 1.25;
         margin: 0;
       }

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -24,8 +25,10 @@ const Title = styled.h1`
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 1.6rem;
+  font-size: 1rem;
+  margin: 0 auto;
   margin-bottom: 1.2rem;
+  text-align: center;
 `;
 
 const CardsList = styled.ul`
@@ -45,32 +48,49 @@ const CardInner = styled.div`
 `;
 
 const CardDate = styled.div`
-  min-width: calc(100% / 3);
-  background: var(--color-lightGrey);
+  flex: 0;
+  margin: 0.8rem;
+  padding: 0.6rem 0.4rem;
+  align-self: flex-start;
+  border: 1px solid var(--color-lightGrey);
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 
   p {
-    font-size: 1.6rem;
     font-weight: 800;
+    color: var(--color-primary);
+
+    b {
+      font-size: 1.6rem;
+      line-height: 1.6rem;
+    }
+
+    span {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.7rem;
+      line-height: 0.7rem;
+    }
   }
 `;
 
 const CardContent = styled.div`
+  flex: 1;
   padding: 0.8rem;
 `;
 
 const CardTitle = styled.h3`
-  font-size: 1.2rem;
-  border-bottom: 1px solid var(--color-lightGrey);
-  padding-bottom: 0.4rem;
+  font-size: ${props => (props.main ? '1rem' : '1.2rem')};
   margin-bottom: 0.4rem;
 `;
 
-const CardTitleText = styled.span``;
-
-const CardTitleDate = styled.time``;
+const CardDescription = styled.p`
+  font-size: 0.7rem;
+  margin-bottom: 0.4rem;
+`;
 
 const CardActions = styled.div``;
 
@@ -82,7 +102,25 @@ const ButtonWrapper = styled.div`
 
 export default function Meetings() {
   const router = useRouter();
-  const hasUpcomingMeeting = router.query?.nueva;
+  // const hasUpcomingMeeting = true; // router.query?.nueva;
+
+  const [newMeetingStatus, setNewMeetingStatus] = useState('upcoming');
+
+  useEffect(() => {
+    if (router.query?.proxima) {
+      setNewMeetingStatus('upcoming');
+    }
+
+    if (router.query?.hoy) {
+      setNewMeetingStatus('today');
+    }
+
+    if (router.query?.pasada) {
+      setNewMeetingStatus('past');
+    }
+  }, [router]);
+
+  console.log('STATUS', newMeetingStatus);
 
   return (
     <>
@@ -99,41 +137,72 @@ export default function Meetings() {
               <Image
                 src="/images/illustrations/meetings.png"
                 alt=""
-                width="218"
-                height="95"
+                width="328"
+                height="121"
               />
             </ImageWrapper>
             <SectionTitle>Reuniones 2020</SectionTitle>
             <CardsList>
-              {hasUpcomingMeeting && (
+              {newMeetingStatus === 'past' ? (
+              <CardItem>
+                <Card variant="outlined" component="section">
+                  <CardInner>
+                    <CardContent>
+                      <CardTitle>Reunión de consorcio</CardTitle>
+                      <CardDescription>
+                        <time dateTime="2020-11-30">30 de Noviembre</time>. Se trataron temas como cortes de luz y humedad en el hall.
+                      </CardDescription>
+                      <CardActions>
+                        <ButtonWrapper>
+                          <Button
+                            size="small"
+                            color="primary"
+                            component={CustomLink}
+                            href="/reunion-pasada"
+                          >
+                            Ver el resumen
+                          </Button>
+                        </ButtonWrapper>
+                      </CardActions>
+                    </CardContent>
+                  </CardInner>
+                </Card>
+              </CardItem>
+              ) : (
                 <CardItem>
                   <Card component="section">
                     <CardInner upcoming>
                       <CardDate>
-                        <p>16/11</p>
+                        <p>
+                          <time dateTime="2020-30-11">
+                            <b>30</b> <span>Noviembre</span>
+                          </time>
+                        </p>
                       </CardDate>
                       <CardContent>
-                        <CardTitle>
-                          <CardTitleText>Reunión de consorcio</CardTitleText>
-                          <CardTitleDate dateTime="2020-11-16T22:00:00.000Z">
-                            16 de Noviembre - 19 hs.
-                          </CardTitleDate>
-                        </CardTitle>
+                        <CardTitle main>Reunión de consorcio</CardTitle>
+                        <CardDescription>
+                          Se realizará el{' '}
+                          <time dateTime="2020-30-11T22:00:00.000Z">
+                            lunes 30 a las 19 hs.
+                          </time>{' '}
+                          de forma remota.
+                        </CardDescription>
                         <CardActions>
                           <ButtonWrapper>
                             <Button
-                              size="small"
                               color="primary"
                               component={CustomLink}
-                              href="/temas"
+                              href="/reunion"
                             >
                               Ir a la lista de temas
                             </Button>
                           </ButtonWrapper>
                           <ButtonWrapper>
                             <Button
-                              size="small"
+                              variant="contained"
                               color="primary"
+                              disabled={newMeetingStatus !== 'today'}
                               component={CustomLink}
                               href="/reunion/vivo/ingresar"
                             >
@@ -149,21 +218,17 @@ export default function Meetings() {
               <CardItem>
                 <Card variant="outlined" component="section">
                   <CardInner>
-                    <CardDate>
-                      <p>05/07</p>
-                    </CardDate>
                     <CardContent>
-                      <CardTitle>
-                        <CardTitleText>Reunión extraordinaria</CardTitleText>
-                        <CardTitleDate dateTime="2020-07-05T22:00:00.000Z">
-                          05 de Julio - 19 hs.
-                        </CardTitleDate>
-                      </CardTitle>
+                      <CardTitle>Reunión extraordinaria</CardTitle>
+                      <CardDescription>
+                        <time dateTime="2020-03-23">23 de Marzo</time>. El tema
+                        principal fue la pandemia y el nuevo protocolo.
+                      </CardDescription>
                       <CardActions>
                         <ButtonWrapper>
                           <Button
                             size="small"
-                            color="secondary"
+                            color="primary"
                             component={CustomLink}
                             href="/reunion-pasada"
                           >
@@ -178,21 +243,18 @@ export default function Meetings() {
               <CardItem>
                 <Card variant="outlined" component="section">
                   <CardInner>
-                    <CardDate>
-                      <p>05/07</p>
-                    </CardDate>
                     <CardContent>
-                      <CardTitle>
-                        <CardTitleText>Reunión de consorcio</CardTitleText>
-                        <CardTitleDate dateTime="2020-04-11T22:00:00.000Z">
-                          11 de Abril - 19 hs.
-                        </CardTitleDate>
-                      </CardTitle>
+                      <CardTitle>Reunión extraordinaria</CardTitle>
+                      <CardDescription>
+                        <time dateTime="2020-02-01">01 de Febrero</time>. El
+                        tema a tratar no fue resuelto y espera resolución
+                        inmediata.
+                      </CardDescription>
                       <CardActions>
                         <ButtonWrapper>
                           <Button
                             size="small"
-                            color="secondary"
+                            color="primary"
                             component={CustomLink}
                             href="/reunion-pasada"
                           >

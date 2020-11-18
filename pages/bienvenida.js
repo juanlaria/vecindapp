@@ -63,10 +63,10 @@ export default function Welcome() {
           <Wrapper>
             <LogoContainer>
               <Image
-                src="https://via.placeholder.com/600x600"
+                src="/images/logos/vecindapp.png"
                 alt=""
-                width="169"
-                height="169"
+                width="135"
+                height="159"
               />
             </LogoContainer>
             <TitleText>¡Vecindapp te da la bienvenida!</TitleText>

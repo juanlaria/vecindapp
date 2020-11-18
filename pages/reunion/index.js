@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import Topic from '../../components/Topic';
+import Header from '../../components/Header';
 
 const topicsData = [
   {
@@ -24,13 +25,13 @@ export default function Topics() {
       <Head>
         <title>Lista de temas. Vecindapp</title>
       </Head>
-      <header>Header</header>
+      <Header hasMenu={false} />
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <h1>Lista de temas.</h1>
         <ul>
           {topicsData.map(topic => <li><Topic {...topic} /></li>)}
         </ul>
-        <Link href="/temas/agregar">
+        <Link href="/reunion/agregar-tema">
           <a>Agregar tema</a>
         </Link>
       </main>
