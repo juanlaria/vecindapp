@@ -86,7 +86,7 @@ export default function SignIn() {
             </Disclaimer>
             <InputWrapper>
               <TextField
-                id="filled-name"
+                id="name"
                 label="Nombre y apellido*"
                 placeholder="Juan Perez"
                 variant="filled"
@@ -94,7 +94,7 @@ export default function SignIn() {
             </InputWrapper>
             <InputWrapper>
               <TextField
-                id="filled-address"
+                id="address"
                 label="Dirección (calle y número)*"
                 placeholder="Av. Rivadavia 3500"
                 variant="filled"
@@ -103,7 +103,7 @@ export default function SignIn() {
             <InputsGroup>
               <InputWrapper>
                 <TextField
-                  id="filled-floor"
+                  id="floor"
                   label="Piso*"
                   placeholder="10"
                   variant="filled"
@@ -111,7 +111,7 @@ export default function SignIn() {
               </InputWrapper>
               <InputWrapper>
                 <TextField
-                  id="filled-apartment"
+                  id="apartment"
                   label="Departamento*"
                   placeholder="A"
                   variant="filled"
@@ -136,7 +136,7 @@ export default function SignIn() {
             </InputWrapper>
             <InputWrapper>
               <TextField
-                id="filled-date"
+                id="date"
                 label="¿Desde cuándo sos parte del edificio?*"
                 type="date"
                 datetimeformat="mm/yy"
@@ -171,7 +171,7 @@ export default function SignIn() {
             </InputWrapper>
             <InputWrapper>
               <TextField
-                id="filled-phone"
+                id="phone"
                 label="Número de celular*"
                 placeholder="(011) 23456789"
                 variant="filled"
@@ -180,7 +180,7 @@ export default function SignIn() {
             </InputWrapper>
             <InputWrapper>
               <TextField
-                id="filled-phone"
+                id="phone"
                 label="Correo electrónico*"
                 type="email"
                 variant="filled"
@@ -188,7 +188,7 @@ export default function SignIn() {
             </InputWrapper>
             <InputWrapper>
               <TextField
-                id="filled-password"
+                id="password"
                 label="Contraseña*"
                 type="password"
                 variant="filled"

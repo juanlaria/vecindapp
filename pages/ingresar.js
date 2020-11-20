@@ -61,7 +61,7 @@ export default function SignIn() {
           <Container>
             <InputWrapper>
               <TextField
-                id="filled-basic"
+                id="email"
                 label="Correo electrónico"
                 type="email"
                 variant="filled"
@@ -74,7 +74,7 @@ export default function SignIn() {
             </ForgotButton>
             <InputWrapper>
               <TextField
-                id="filled-basic"
+                id="password"
                 label="Contraseña"
                 type="password"
                 variant="filled"

@@ -24,9 +24,9 @@ const ToolbarInner = styled.div`
 `;
 
 const Content = styled.div`
-  flex: 1;
+  flex-grow: 1;
+  align-self: stretch;
   display: flex;
-  align-items: flex-start;
   padding: 0 0.8rem;
 `;
 
@@ -207,6 +207,6 @@ Header.defaultProps = {
   window: undefined,
   children: undefined,
   active: undefined,
-}
+};
 
 export default Header;

@@ -49,7 +49,8 @@ const LogoWrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1rem;
+text-transform: uppercase;
 `;
 
 const Subtitle = styled.h2`

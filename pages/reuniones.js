@@ -21,7 +21,9 @@ const ImageWrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  align-self: center;
 `;
 
 const SectionTitle = styled.h2`
@@ -144,30 +146,32 @@ export default function Meetings() {
             <SectionTitle>Reuniones 2020</SectionTitle>
             <CardsList>
               {newMeetingStatus === 'past' ? (
-              <CardItem>
-                <Card variant="outlined" component="section">
-                  <CardInner>
-                    <CardContent>
-                      <CardTitle>Reunión de consorcio</CardTitle>
-                      <CardDescription>
-                        <time dateTime="2020-11-30">30 de Noviembre</time>. Se trataron temas como cortes de luz y humedad en el hall.
-                      </CardDescription>
-                      <CardActions>
-                        <ButtonWrapper>
-                          <Button
-                            size="small"
-                            color="primary"
-                            component={CustomLink}
-                            href="/reunion-pasada"
-                          >
-                            Ver el resumen
-                          </Button>
-                        </ButtonWrapper>
-                      </CardActions>
-                    </CardContent>
-                  </CardInner>
-                </Card>
-              </CardItem>
+                <CardItem>
+                  <Card variant="outlined" component="section">
+                    <CardInner>
+                      <CardContent>
+                        <CardTitle>Reunión de consorcio</CardTitle>
+                        <CardDescription>
+                          <time dateTime="2020-11-30">30 de Noviembre</time>. Se
+                          trataron temas como cortes de luz y humedad en el
+                          hall.
+                        </CardDescription>
+                        <CardActions>
+                          <ButtonWrapper>
+                            <Button
+                              size="small"
+                              color="primary"
+                              component={CustomLink}
+                              href="/reunion-pasada"
+                            >
+                              Ver el resumen
+                            </Button>
+                          </ButtonWrapper>
+                        </CardActions>
+                      </CardContent>
+                    </CardInner>
+                  </Card>
+                </CardItem>
               ) : (
                 <CardItem>
                   <Card component="section">
