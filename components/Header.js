@@ -27,6 +27,7 @@ const Content = styled.div`
   flex-grow: 1;
   align-self: stretch;
   display: flex;
+  flex-direction: column;
   padding: 0 0.8rem;
 `;
 

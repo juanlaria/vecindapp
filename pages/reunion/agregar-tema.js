@@ -365,7 +365,7 @@ export default function AddTopic() {
               href="/"
               color="primary"
             >
-              Ingresar
+              Proponer tema
             </Button>
           </SubmitWrapper>
         </Form>
