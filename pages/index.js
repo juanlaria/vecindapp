@@ -207,7 +207,7 @@ export default function Home() {
                       component={CustomLink}
                       color="primary"
                       size="small"
-                      href="/reuniones"
+                      href="/reunion/resolucion"
                     >
                       Leer más
                     </Button>
