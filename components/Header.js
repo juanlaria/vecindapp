@@ -68,7 +68,7 @@ const Header = ({ hasMenu, active, children, window }) => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <header>
+    <>
       <AppBar position="sticky">
         <Toolbar>
           <ToolbarInner>
@@ -193,7 +193,7 @@ const Header = ({ hasMenu, active, children, window }) => {
           </Container>
         </DrawerNav>
       </Drawer>
-    </header>
+    </>
   );
 };
 

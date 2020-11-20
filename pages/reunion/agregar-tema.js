@@ -362,7 +362,7 @@ export default function AddTopic() {
             <Button
               variant="contained"
               component={CustomLink}
-              href="/"
+              href="/reunion?tema=true"
               color="primary"
             >
               Proponer tema

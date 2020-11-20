@@ -242,7 +242,7 @@ export default function AddQuote() {
             <Button
               variant="contained"
               component={CustomLink}
-              href="/"
+              href="/reunion/agregar-tema?presupuesto=true"
               color="primary"
             >
               Proponer presupuesto
