@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
+import Image from 'next/image';
 import styled from '@emotion/styled';
 import {
   Button,
@@ -12,6 +14,8 @@ import {
   FormHelperText,
 } from '@material-ui/core';
 import ControlPointIcon from '@material-ui/icons/ControlPoint';
+import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 import Header from '../../components/Header';
 import { default as CustomLink } from '../../components/Link';
@@ -40,12 +44,46 @@ const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+
+  input[type="checkbox"] {
+    width: 0;
+    padding: 0;
+    margin: 0;
+  }
 `;
 
-const InputsGroup = styled.div`
-  display: grid;
-  grid-gap: 1.4rem;
-  grid-template-columns: 1fr 1fr;
+const Attachment = styled.section`
+  display: flex;
+  margin: 1rem 0 1.2rem;
+`;
+
+const ImageWrapper = styled.div``;
+
+const AttachmentContent = styled.div`
+  padding-left: 0.6rem;
+`;
+
+const AttachmentTitle = styled.p`
+  font-size: 0.7rem;
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+`;
+
+const AttachmentDescription = styled.p`
+  font-size: 0.7rem;
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+`;
+
+const AttachmentButtonWrapper = styled.div`
+  opacity: 0.6;
+`;
+
+const AttachmentButtonInner = styled.span`
+  flex: 1;
+  text-align: left;
+  font-size: 0.7rem;
+  text-transform: none;
 `;
 
 const SubmitWrapper = styled(Container)`
@@ -79,6 +117,21 @@ const Disclaimer = styled.p`
 `;
 
 export default function AddTopic() {
+  const router = useRouter();
+  // const hasUpcomingMeeting = true; // router.query?.nueva;
+
+  const [hasAttachment, setAttachment] = useState(false);
+  const [hasQuote, setQuote] = useState(false);
+
+  useEffect(() => {
+    if (router.query?.archivo) {
+      setAttachment(true);
+    }
+    if (router.query?.presupuesto) {
+      setQuote(true);
+    }
+  }, [router]);
+
   const [categories, setCategories] = useState({
     arreglos: true,
     propuestas: false,
@@ -183,6 +236,44 @@ export default function AddTopic() {
                 </ButtonInner>
               </Button>
             </InputWrapper>
+            {hasAttachment && (
+              <Attachment>
+                <ImageWrapper>
+                  <Image
+                    src="https://via.placeholder.com/200x180"
+                    alt=""
+                    width="100"
+                    height="90"
+                  />
+                </ImageWrapper>
+                <AttachmentContent>
+                  <AttachmentTitle>DSC0010.jpg</AttachmentTitle>
+                  <AttachmentDescription>125 KB</AttachmentDescription>
+                  <AttachmentButtonWrapper>
+                    <Button
+                      size="small"
+                      onClick={() => alert('Botón deshabilitado')}
+                      startIcon={<CreateOutlinedIcon />}
+                    >
+                      <AttachmentButtonInner>
+                        Editar nombre
+                      </AttachmentButtonInner>
+                    </Button>
+                  </AttachmentButtonWrapper>
+                  <AttachmentButtonWrapper>
+                    <Button
+                      size="small"
+                      onClick={() => alert('Botón deshabilitado')}
+                      startIcon={<DeleteOutlinedIcon />}
+                    >
+                      <AttachmentButtonInner>
+                        Eliminar archivo
+                      </AttachmentButtonInner>
+                    </Button>
+                  </AttachmentButtonWrapper>
+                </AttachmentContent>
+              </Attachment>
+            )}
             <InputWrapper>
               <Button
                 color="primary"
@@ -195,6 +286,44 @@ export default function AddTopic() {
                 </ButtonInner>
               </Button>
             </InputWrapper>
+            {hasQuote && (
+              <Attachment>
+                <ImageWrapper>
+                  <Image
+                    src="https://via.placeholder.com/200x180"
+                    alt=""
+                    width="100"
+                    height="90"
+                  />
+                </ImageWrapper>
+                <AttachmentContent>
+                  <AttachmentTitle>Grupo Gamma</AttachmentTitle>
+                  <AttachmentDescription>$95.000</AttachmentDescription>
+                  <AttachmentButtonWrapper>
+                    <Button
+                      size="small"
+                      onClick={() => alert('Botón deshabilitado')}
+                      startIcon={<CreateOutlinedIcon />}
+                    >
+                      <AttachmentButtonInner>
+                        Editar presupuesto
+                      </AttachmentButtonInner>
+                    </Button>
+                  </AttachmentButtonWrapper>
+                  <AttachmentButtonWrapper>
+                    <Button
+                      size="small"
+                      onClick={() => alert('Botón deshabilitado')}
+                      startIcon={<DeleteOutlinedIcon />}
+                    >
+                      <AttachmentButtonInner>
+                        Eliminar presupuesto
+                      </AttachmentButtonInner>
+                    </Button>
+                  </AttachmentButtonWrapper>
+                </AttachmentContent>
+              </Attachment>
+            )}
             <InputWrapper>
               <Button
                 color="primary"
