@@ -34,6 +34,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const BarContent = styled.div`
+  width: 100%;
   flex-grow: 1;
   align-self: flex-end;
   min-height: 6.4rem;

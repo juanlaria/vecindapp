@@ -110,6 +110,11 @@ export const globalStyles = (
       a {
         color: inherit;
       }
+
+      .MuiButton-containedPrimary {
+        color: #fff;
+      }
+
       .button {
         cursor: pointer;
         display: inline-block;
