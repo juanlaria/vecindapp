@@ -127,7 +127,7 @@ const MeetingControls = styled.section`
   left: 0;
   right: 0;
   padding: 0.4rem 0;
-  background-color: #37474F;
+  background-color: #37474f;
   max-width: 500px;
   margin: 0 auto;
 `;
@@ -163,6 +163,7 @@ function a11yProps(index) {
 export default function LiveMeeting() {
   const [value, setValue] = useState(0);
   const [quoteSelected, setQuoteSelected] = useState(null);
+  const [voted, setVoted] = useState(null);
   const [videoToggle, setVideoToggle] = useState(true);
   const [micToggle, setMicToggle] = useState(true);
 
@@ -193,7 +194,7 @@ export default function LiveMeeting() {
             </Tabs>
           </AppBar>
           <TabPanel value={value} index={0}>
-            <ImageWrapper onClick={()=> alert('Botón deshabilitado')}>
+            <ImageWrapper onClick={() => alert('Botón deshabilitado')}>
               <Image
                 src="/images/screens/live-meeting/chat.png"
                 alt=""
@@ -203,7 +204,7 @@ export default function LiveMeeting() {
             </ImageWrapper>
           </TabPanel>
           <TabPanel value={value} index={1}>
-            <ImageWrapper onClick={()=> alert('Botón deshabilitado')}>
+            <ImageWrapper onClick={() => alert('Botón deshabilitado')}>
               <Image
                 src="/images/screens/live-meeting/vecinos.png"
                 alt=""
@@ -244,26 +245,33 @@ export default function LiveMeeting() {
                     <ul>
                       <li>
                         <p>
-                          Empresa Blackstone SRL: <b>5 votos</b>
+                          Empresa Blackstone SRL:{' '}
+                          <b>{voted === 'Blackstone SRL' ? '10' : '9'} votos</b>
                         </p>
                       </li>
                       <li>
                         <p>
-                          Garbarino: <b>5 votos</b>
+                          Garbarino:{' '}
+                          <b>{voted === 'Garbarino' ? '7' : '6'} votos</b>
                         </p>
                       </li>
                       <li>
                         <p>
-                          Energy: <b>5 votos</b>
+                          Energy: <b>{voted === 'Energy' ? '6' : '5'} votos</b>
                         </p>
                       </li>
                     </ul>
                     <p>
-                      <small>Votaron: 20/40</small>
+                      <small>Votaron: {voted ? '21' : '20'}/40</small>
                     </p>
                   </VotingResults>
 
-                  <Form>
+                  <Form
+                    onSubmit={e => {
+                      e.preventDefault();
+                      setVoted(quoteSelected);
+                    }}
+                  >
                     <FormControl component="fieldset">
                       <FormLegend>Votá una de las 3 opciones:</FormLegend>
                       <RadioGroup
@@ -290,7 +298,12 @@ export default function LiveMeeting() {
                       </RadioGroup>
                     </FormControl>
                     <ButtonWrapper>
-                      <Button color="primary" variant="contained" type="submit">
+                      <Button
+                        color="primary"
+                        variant="contained"
+                        disabled={!!voted}
+                        type="submit"
+                      >
                         Votar
                       </Button>
                     </ButtonWrapper>
