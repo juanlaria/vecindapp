@@ -200,7 +200,7 @@ export default function SignIn() {
             <Button
               variant="contained"
               component={CustomLink}
-              href="/"
+              href="/?proxima=true"
               color="primary"
             >
               Ingresar
