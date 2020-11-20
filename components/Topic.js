@@ -77,8 +77,7 @@ const Topic = ({ title, description, author, votes }) => {
                 edge="start"
                 size="small"
                 color="primary"
-                component={Link}
-                href="#"
+                onClick={() => alert('Botón deshabilitado')}
               >
                 Ver archivos adjuntos
               </Button>

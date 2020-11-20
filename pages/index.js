@@ -51,7 +51,7 @@ const LogoWrapper = styled.div`
 
 const Title = styled.h1`
   font-size: 1rem;
-text-transform: uppercase;
+  text-transform: uppercase;
 `;
 
 const Subtitle = styled.h2`
@@ -256,7 +256,13 @@ export default function Home() {
                 variant="contained"
                 color="primary"
                 component={CustomLink}
-                href="/reuniones"
+                href={`/reuniones${
+                  notificationVisible === 'today-meeting' ? '?hoy=true' : ''
+                }${
+                  notificationVisible === 'resolved' ? '?pasada=true' : ''
+                }${
+                  notificationVisible === 'summary' ? '?pasada=true' : ''
+                }`}
               >
                 Reuniones
               </Button>

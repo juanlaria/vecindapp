@@ -51,6 +51,12 @@ const ButtonWrapper = styled.div`
   flex-direction: column;
 `;
 
+const HeaderTitle = styled.h1`
+  font-size: 1rem;
+  text-transform: uppercase;
+  align-self: center;
+`;
+
 const topicsData = [
   {
     title: 'Humedad en el hall de entrada',
@@ -73,10 +79,14 @@ export default function Topics() {
   const router = useRouter();
 
   const [newTopicVisible, setNewTopicVisible] = useState(false);
+  const [liveMeeting, setLiveMeeting] = useState(false);
 
   useEffect(() => {
     if (router.query?.tema) {
       setNewTopicVisible(true);
+    }
+    if (router.query?.vivo) {
+      setLiveMeeting(true);
     }
   }, [router]);
   return (
@@ -84,8 +94,24 @@ export default function Topics() {
       <Head>
         <title>Lista de temas. Vecindapp</title>
       </Head>
-      <Header hasMenu={false} />
+      <Header hasMenu={false}>
+        <HeaderTitle>Reunión de consorcio</HeaderTitle>
+      </Header>
       <Main>
+        {liveMeeting && (
+          <Container>
+            <ButtonWrapper>
+              <Button
+                variant="contained"
+                color="secondary"
+                component={CustomLink}
+                href="/reunion/vivo"
+              >
+                Ir a la reunión en vivo
+              </Button>
+            </ButtonWrapper>
+          </Container>
+        )}
         <h1>Lista de temas</h1>
         <section>
           <div className="filter-header">
