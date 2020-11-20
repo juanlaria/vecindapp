@@ -56,6 +56,7 @@ export const globalStyles = (
         color: var(--color-black);
         font-family: var(--font-primary);
         font-size: 20px;
+        min-width: 320px;
       }
 
       html {
