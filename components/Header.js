@@ -28,6 +28,7 @@ const Content = styled.div`
   align-self: stretch;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 0 0.8rem;
 `;
 

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import styled from '@emotion/styled';
 import {
   AppBar,
@@ -13,19 +14,27 @@ import {
   FormControlLabel,
   Radio,
   Button,
+  IconButton,
+  Container,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import VideocamIcon from '@material-ui/icons/Videocam';
+import VideocamOffIcon from '@material-ui/icons/VideocamOff';
+import MicIcon from '@material-ui/icons/Mic';
+import MicOffIcon from '@material-ui/icons/MicOff';
 
 import Header from '../../../components/Header';
 import TabPanel from '../../../components/Tabs/TabPanel';
 
+import { default as CustomLink } from '../../../components/Link';
+
 const Main = styled.main`
-  padding: 0 0 1.2rem;
+  padding: 0 0 4.5rem;
 `;
 
 const Title = styled.h1`
   font-size: 1rem;
-text-transform: uppercase;
+  text-transform: uppercase;
 `;
 
 const TopicsList = styled.ul`
@@ -105,6 +114,45 @@ const ButtonWrapper = styled.div`
   flex-direction: column;
 `;
 
+const ImageWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+`;
+
+const MeetingControls = styled.section`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.4rem 0;
+  background-color: #37474F;
+  max-width: 500px;
+  margin: 0 auto;
+`;
+
+const MeetingSettings = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const SettingWrapper = styled.div`
+  margin-left: 0.4rem;
+
+  .MuiIconButton-root {
+    color: #fff;
+  }
+`;
+
+const MeetingUser = styled.p`
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-right: auto;
+  color: #fff;
+`;
+
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
@@ -115,6 +163,8 @@ function a11yProps(index) {
 export default function LiveMeeting() {
   const [value, setValue] = useState(0);
   const [quoteSelected, setQuoteSelected] = useState(null);
+  const [videoToggle, setVideoToggle] = useState(true);
+  const [micToggle, setMicToggle] = useState(true);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -137,16 +187,30 @@ export default function LiveMeeting() {
               onChange={handleChange}
               aria-label="simple tabs example"
             >
-              <Tab label="Vecinos" {...a11yProps(0)} />
-              <Tab label="Chat" {...a11yProps(1)} />
+              <Tab label="Chat" {...a11yProps(0)} />
+              <Tab label="Vecinos" {...a11yProps(1)} />
               <Tab label="Temas" {...a11yProps(2)} />
             </Tabs>
           </AppBar>
           <TabPanel value={value} index={0}>
-            Item One
+            <ImageWrapper onClick={()=> alert('Botón deshabilitado')}>
+              <Image
+                src="/images/screens/live-meeting/chat.png"
+                alt=""
+                width="361"
+                height="534"
+              />
+            </ImageWrapper>
           </TabPanel>
           <TabPanel value={value} index={1}>
-            Item Two
+            <ImageWrapper onClick={()=> alert('Botón deshabilitado')}>
+              <Image
+                src="/images/screens/live-meeting/vecinos.png"
+                alt=""
+                width="361"
+                height="516"
+              />
+            </ImageWrapper>
           </TabPanel>
           <TabPanel value={value} index={2}>
             <TopicsList>
@@ -206,7 +270,7 @@ export default function LiveMeeting() {
                         aria-label="Opciones de presupuesto"
                         name="quote"
                         value={quoteSelected}
-                        onChange={(e) => setQuoteSelected(e.target.value)}
+                        onChange={e => setQuoteSelected(e.target.value)}
                       >
                         <FormControlLabel
                           value="Blackstone SRL"
@@ -236,6 +300,43 @@ export default function LiveMeeting() {
             </TopicsList>
           </TabPanel>
         </section>
+        <MeetingControls>
+          <Container>
+            <MeetingSettings>
+              <MeetingUser>José Martinez</MeetingUser>
+              <SettingWrapper>
+                <IconButton
+                  aria-label={`${
+                    videoToggle ? 'Deshabilitar' : 'Habilitar'
+                  } cámara`}
+                  onClick={() => setVideoToggle(!videoToggle)}
+                >
+                  {videoToggle ? <VideocamIcon /> : <VideocamOffIcon />}
+                </IconButton>
+              </SettingWrapper>
+              <SettingWrapper>
+                <IconButton
+                  aria-label={`${
+                    micToggle ? 'Deshabilitar' : 'Habilitar'
+                  } micrófono`}
+                  onClick={() => setMicToggle(!micToggle)}
+                >
+                  {micToggle ? <MicIcon /> : <MicOffIcon />}
+                </IconButton>
+              </SettingWrapper>
+              <SettingWrapper>
+                <Button
+                  color="secondary"
+                  variant="contained"
+                  component={CustomLink}
+                  href="/reuniones?hoy=true"
+                >
+                  Salir
+                </Button>
+              </SettingWrapper>
+            </MeetingSettings>
+          </Container>
+        </MeetingControls>
       </Main>
     </>
   );
