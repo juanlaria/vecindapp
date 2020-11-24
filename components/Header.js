@@ -61,6 +61,31 @@ const ButtonText = styled.span`
   flex: 1;
 `;
 
+const SkipToContent = styled('div')`
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    position: absolute;
+    top: 0;
+    background: var(--color-black);
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 1rem;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    &:focus {
+      transform: translateY(0%);
+    }
+  }
+`;
+
 const Header = ({ hasMenu, active, children, window }) => {
   const router = useRouter();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -70,6 +95,9 @@ const Header = ({ hasMenu, active, children, window }) => {
   return (
     <>
       <AppBar position="sticky">
+        <SkipToContent>
+          <a href="#main">Ir al contenido</a>
+        </SkipToContent>
         <Toolbar>
           <ToolbarInner>
             {hasMenu ? (

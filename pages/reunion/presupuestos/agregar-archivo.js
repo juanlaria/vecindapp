@@ -153,7 +153,7 @@ export default function AddFile() {
         <Title>Agregar archivo</Title>
         <Subtitle>Tamaño máximo 256 KB (pdf, jpg, png)</Subtitle>
       </Header>
-      <Main>
+      <Main id="main">
         <Container>
           <AttachmentButtonWrapper>
             <Button

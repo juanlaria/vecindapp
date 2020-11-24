@@ -10,7 +10,7 @@ import Header from '../../components/Header';
 import { default as CustomLink } from '../../components/Link';
 
 const Main = styled.main`
-  h1 {
+  h2 {
     font-size: 1rem;
     margin: 1.8rem auto;
     text-align: center;
@@ -97,7 +97,7 @@ export default function Topics() {
       <Header hasMenu={false}>
         <HeaderTitle>Reunión de consorcio</HeaderTitle>
       </Header>
-      <Main>
+      <Main id="main">
         {liveMeeting && (
           <Container>
             <ButtonWrapper>
@@ -112,7 +112,7 @@ export default function Topics() {
             </ButtonWrapper>
           </Container>
         )}
-        <h1>Lista de temas</h1>
+        <h2>Lista de temas</h2>
         <section>
           <div className="filter-header">
             <Container>

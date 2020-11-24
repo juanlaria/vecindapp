@@ -156,7 +156,7 @@ export default function AddQuote() {
         <Title>Agregar presupuesto</Title>
         <Subtitle>Tema: Cortes de luz constantes</Subtitle>
       </Header>
-      <main>
+      <main id="main">
         <Form noValidate autoComplete="off">
           <Container>
             <Disclaimer>

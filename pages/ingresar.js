@@ -55,7 +55,7 @@ export default function SignIn() {
         <title>Iniciar sesión. Vecindapp</title>
       </Head>
       <Header hasMenu={false} />
-      <Main>
+      <Main id="main">
         <Title>Iniciar sesión</Title>
         <Form noValidate autoComplete="off">
           <Container>

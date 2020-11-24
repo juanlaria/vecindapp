@@ -132,7 +132,7 @@ export default function Meetings() {
       <Header>
         <Title>Reuniones</Title>
       </Header>
-      <Main>
+      <Main id="main">
         <Container>
           <Wrapper>
             <ImageWrapper>

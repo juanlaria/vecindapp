@@ -8,7 +8,7 @@ export default function Error404() {
         <title>Página no encontrada. Vecindapp</title>
       </Head>
       <header>Header</header>
-      <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+      <main id="main" style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <h1>Página no encontrada.</h1>
         <Link href="/">
           <a>Volver al inicio</a>

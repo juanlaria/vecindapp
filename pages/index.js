@@ -121,7 +121,7 @@ export default function Home() {
           <Subtitle>Charcas 2777, C.A.B.A.</Subtitle>
         </BarContent>
       </Header>
-      <Main>
+      <Main id="main">
         <Container>
           <Wrapper>
             <ImageWrapper>

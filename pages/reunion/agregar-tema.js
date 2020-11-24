@@ -148,7 +148,7 @@ export default function AddTopic() {
       <Header hasMenu={false}>
         <Title>Agregar tema</Title>
       </Header>
-      <main>
+      <main id="main">
         <Form noValidate autoComplete="off">
           <Container>
             <Disclaimer>

@@ -58,7 +58,7 @@ export default function Welcome() {
       <Head>
         <title>¡Vecindapp te da la bienvenida!</title>
       </Head>
-      <Main>
+      <Main id="main">
         <Container>
           <Wrapper>
             <LogoContainer>

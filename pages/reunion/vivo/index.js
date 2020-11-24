@@ -185,7 +185,7 @@ export default function LiveMeeting() {
       <Header hasMenu={false}>
         <Title>Reunión</Title>
       </Header>
-      <Main>
+      <Main id="main">
         <TabsHeaderWrapper>
           <AppBar color="initial" position="initial">
             <Tabs variant="fullWidth" value={value} onChange={handleChange}>

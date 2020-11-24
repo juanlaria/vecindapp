@@ -86,7 +86,7 @@ export default function EnterMeeting() {
         <title>Reunión de consorcio en vivo. Vecindapp</title>
       </Head>
       <Header hasMenu={false} />
-      <Main>
+      <Main id="main">
         <Container>
           <Wrapper>
             <TitleWrapper>

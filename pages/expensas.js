@@ -7,7 +7,7 @@ export default function Expenses() {
         <title>Expensas. Vecindapp</title>
       </Head>
       <header>Header</header>
-      <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+      <main id="main" style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <h1>Expensas.</h1>
       </main>
     </>

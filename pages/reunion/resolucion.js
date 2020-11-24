@@ -66,7 +66,7 @@ export default function Resolution() {
         <title>Resolución de tema "Cortes de luz". Vecindapp</title>
       </Head>
       <Header hasMenu={false}><HeaderTitle>Reunión de consorcio</HeaderTitle></Header>
-      <Main>
+      <Main id="main">
         <Container>
           <Wrapper>
             <ContentWrapper>

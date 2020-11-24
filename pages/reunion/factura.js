@@ -68,7 +68,7 @@ export default function Bill() {
       <Header hasMenu={false}>
         <HeaderTitle>Reunión de consorcio</HeaderTitle>
       </Header>
-      <Main>
+      <Main id="main">
         <Container>
           <Wrapper>
             <ContentWrapper>

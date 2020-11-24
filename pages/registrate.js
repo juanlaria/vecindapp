@@ -77,7 +77,7 @@ export default function SignIn() {
         <title>Registrate. Vecindapp</title>
       </Head>
       <Header hasMenu={false} />
-      <Main>
+      <Main id="main">
         <Title>Registrate</Title>
         <Form noValidate autoComplete="off">
           <Container>
