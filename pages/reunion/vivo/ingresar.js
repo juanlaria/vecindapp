@@ -9,7 +9,6 @@ import VideocamOffIcon from '@material-ui/icons/VideocamOff';
 import MicIcon from '@material-ui/icons/Mic';
 import MicOffIcon from '@material-ui/icons/MicOff';
 
-
 import { default as CustomLink } from '../../../components/Link';
 import Header from '../../../components/Header';
 
@@ -122,7 +121,9 @@ export default function EnterMeeting() {
                 <SettingWrapper>
                   <IconButton
                     color="inherit"
-                    aria-label=""
+                    aria-label={`${
+                      videoToggle ? 'Deshabilitar' : 'Habilitar'
+                    } cámara`}
                     onClick={() => setVideoToggle(!videoToggle)}
                   >
                     {videoToggle ? <VideocamIcon /> : <VideocamOffIcon />}
@@ -131,7 +132,9 @@ export default function EnterMeeting() {
                 <SettingWrapper>
                   <IconButton
                     color="inherit"
-                    aria-label=""
+                    aria-label={`${
+                      micToggle ? 'Deshabilitar' : 'Habilitar'
+                    } micrófono`}
                     onClick={() => setMicToggle(!micToggle)}
                   >
                     {micToggle ? <MicIcon /> : <MicOffIcon />}

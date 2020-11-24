@@ -32,6 +32,12 @@ const Main = styled.main`
   padding: 0 0 4.5rem;
 `;
 
+const TabsHeaderWrapper = styled.div`
+  position: sticky;
+  top: 86px;
+  z-index: 1;
+`;
+
 const Title = styled.h1`
   font-size: 1rem;
   text-transform: uppercase;
@@ -155,8 +161,8 @@ const MeetingUser = styled.p`
 
 function a11yProps(index) {
   return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    id: `tab-${index}`,
+    'aria-controls': `tabpanel-${index}`,
   };
 }
 
@@ -180,139 +186,134 @@ export default function LiveMeeting() {
         <Title>Reunión</Title>
       </Header>
       <Main>
-        <section>
-          <AppBar position="sticky">
-            <Tabs
-              variant="fullWidth"
-              value={value}
-              onChange={handleChange}
-              aria-label="simple tabs example"
-            >
+        <TabsHeaderWrapper>
+          <AppBar color="initial" position="initial">
+            <Tabs variant="fullWidth" value={value} onChange={handleChange}>
               <Tab label="Chat" {...a11yProps(0)} />
               <Tab label="Vecinos" {...a11yProps(1)} />
               <Tab label="Temas" {...a11yProps(2)} />
             </Tabs>
           </AppBar>
-          <TabPanel value={value} index={0}>
-            <ImageWrapper onClick={() => alert('Botón deshabilitado')}>
-              <Image
-                src="/images/screens/live-meeting/chat.png"
-                alt=""
-                width="361"
-                height="534"
-              />
-            </ImageWrapper>
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            <ImageWrapper onClick={() => alert('Botón deshabilitado')}>
-              <Image
-                src="/images/screens/live-meeting/vecinos.png"
-                alt=""
-                width="361"
-                height="516"
-              />
-            </ImageWrapper>
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            <TopicsList>
-              <TopicItem>
-                <article>
-                  <TopicTitle>Cortes de luz constantes</TopicTitle>
+        </TabsHeaderWrapper>
+        <TabPanel value={value} index={0}>
+          <ImageWrapper onClick={() => alert('Botón deshabilitado')}>
+            <Image
+              src="/images/screens/live-meeting/chat.png"
+              alt=""
+              width="361"
+              height="534"
+            />
+          </ImageWrapper>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <ImageWrapper onClick={() => alert('Botón deshabilitado')}>
+            <Image
+              src="/images/screens/live-meeting/vecinos.png"
+              alt=""
+              width="361"
+              height="516"
+            />
+          </ImageWrapper>
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <TopicsList>
+            <TopicItem>
+              <article>
+                <TopicTitle>Cortes de luz constantes</TopicTitle>
 
-                  <AccordionWrapper>
-                    <Accordion>
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                      >
-                        <AccordionTitle>Resumen</AccordionTitle>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <p>
-                          Se corta la luz minimamente 3 veces por semana dejando
-                          al edificio sin ascensor, sin agua entre otros
-                          problemas. Se requiere la compra urgente de un grupo
-                          electrógeno
-                        </p>
-                      </AccordionDetails>
-                    </Accordion>
-                  </AccordionWrapper>
-                  <VotingResults>
-                    <VotingResultsTitle>
-                      Votos de los integrantes
-                    </VotingResultsTitle>
-                    <ul>
-                      <li>
-                        <p>
-                          Empresa Blackstone SRL:{' '}
-                          <b>{voted === 'Blackstone SRL' ? '10' : '9'} votos</b>
-                        </p>
-                      </li>
-                      <li>
-                        <p>
-                          Garbarino:{' '}
-                          <b>{voted === 'Garbarino' ? '7' : '6'} votos</b>
-                        </p>
-                      </li>
-                      <li>
-                        <p>
-                          Energy: <b>{voted === 'Energy' ? '6' : '5'} votos</b>
-                        </p>
-                      </li>
-                    </ul>
-                    <p>
-                      <small>Votaron: {voted ? '21' : '20'}/40</small>
-                    </p>
-                  </VotingResults>
+                <AccordionWrapper>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <AccordionTitle>Resumen</AccordionTitle>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <p>
+                        Se corta la luz minimamente 3 veces por semana dejando
+                        al edificio sin ascensor, sin agua entre otros
+                        problemas. Se requiere la compra urgente de un grupo
+                        electrógeno
+                      </p>
+                    </AccordionDetails>
+                  </Accordion>
+                </AccordionWrapper>
+                <VotingResults>
+                  <VotingResultsTitle>
+                    Votos de los integrantes
+                  </VotingResultsTitle>
+                  <ul>
+                    <li>
+                      <p>
+                        Empresa Blackstone SRL:{' '}
+                        <b>{voted === 'Blackstone SRL' ? '10' : '9'} votos</b>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Garbarino:{' '}
+                        <b>{voted === 'Garbarino' ? '7' : '6'} votos</b>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Energy: <b>{voted === 'Energy' ? '6' : '5'} votos</b>
+                      </p>
+                    </li>
+                  </ul>
+                  <p>
+                    <small>Votaron: {voted ? '21' : '20'}/40</small>
+                  </p>
+                </VotingResults>
 
-                  <Form
-                    onSubmit={e => {
-                      e.preventDefault();
-                      setVoted(quoteSelected);
-                    }}
-                  >
-                    <FormControl component="fieldset">
-                      <FormLegend>Votá una de las 3 opciones:</FormLegend>
-                      <RadioGroup
-                        aria-label="Opciones de presupuesto"
-                        name="quote"
-                        value={quoteSelected}
-                        onChange={e => setQuoteSelected(e.target.value)}
-                      >
-                        <FormControlLabel
-                          value="Blackstone SRL"
-                          control={<Radio />}
-                          label="Blackstone SRL: $89886"
-                        />
-                        <FormControlLabel
-                          value="Garbarino"
-                          control={<Radio />}
-                          label="Garbarino: $90450"
-                        />
-                        <FormControlLabel
-                          value="Energy"
-                          control={<Radio />}
-                          label="Energy: $92200"
-                        />
-                      </RadioGroup>
-                    </FormControl>
-                    <ButtonWrapper>
-                      <Button
-                        color="primary"
-                        variant="contained"
-                        disabled={!!voted}
-                        type="submit"
-                      >
-                        Votar
-                      </Button>
-                    </ButtonWrapper>
-                  </Form>
-                </article>
-              </TopicItem>
-            </TopicsList>
-          </TabPanel>
-        </section>
+                <Form
+                  onSubmit={e => {
+                    e.preventDefault();
+                    setVoted(quoteSelected);
+                  }}
+                >
+                  <FormControl component="fieldset">
+                    <FormLegend>Votá una de las 3 opciones:</FormLegend>
+                    <RadioGroup
+                      aria-label="Opciones de presupuesto"
+                      name="quote"
+                      value={quoteSelected}
+                      onChange={e => setQuoteSelected(e.target.value)}
+                    >
+                      <FormControlLabel
+                        value="Blackstone SRL"
+                        control={<Radio />}
+                        label="Blackstone SRL: $89886"
+                      />
+                      <FormControlLabel
+                        value="Garbarino"
+                        control={<Radio />}
+                        label="Garbarino: $90450"
+                      />
+                      <FormControlLabel
+                        value="Energy"
+                        control={<Radio />}
+                        label="Energy: $92200"
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                  <ButtonWrapper>
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      disabled={!!voted}
+                      type="submit"
+                    >
+                      Votar
+                    </Button>
+                  </ButtonWrapper>
+                </Form>
+              </article>
+            </TopicItem>
+          </TopicsList>
+        </TabPanel>
         <MeetingControls>
           <Container>
             <MeetingSettings>

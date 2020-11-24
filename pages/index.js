@@ -258,9 +258,7 @@ export default function Home() {
                 component={CustomLink}
                 href={`/reuniones${
                   notificationVisible === 'today-meeting' ? '?hoy=true' : ''
-                }${
-                  notificationVisible === 'resolved' ? '?pasada=true' : ''
-                }${
+                }${notificationVisible === 'resolved' ? '?pasada=true' : ''}${
                   notificationVisible === 'summary' ? '?pasada=true' : ''
                 }`}
               >

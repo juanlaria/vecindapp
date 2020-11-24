@@ -30,13 +30,13 @@ const TopicWrapper = styled.article`
   .description {
     font-size: 0.7rem;
     color: var(--color-black);
-    opacity: 0.6;
+    opacity: 0.7;
     margin-bottom: 1rem;
   }
 
   .author {
     font-size: 0.7rem;
-    color: #5e6eff;
+    color: var(--color-black);
     margin-bottom: 0.8rem;
   }
 

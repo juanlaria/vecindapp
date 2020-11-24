@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
 
   constructor(props) {
     super(props);
-    const lang = "es";
+    const lang = 'es';
     this.lang = lang;
   }
 
