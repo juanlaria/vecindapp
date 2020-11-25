@@ -28,6 +28,7 @@ const Main = styled.main`
     ul {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       margin: 0 -0.4rem;
     }
 
@@ -40,6 +41,13 @@ const Main = styled.main`
     list-style: none;
     padding: 0;
     margin: 0;
+  }
+
+  .topics-results-title {
+    font-size: 0.7rem;
+    opacity: 0.75;
+    margin: 1rem auto 0;
+    text-align: center;
   }
 `;
 
@@ -63,14 +71,14 @@ const topicsData = [
     description:
       'Debemos revisar con un plomero y arreglar la humedad en el hall',
     author: 'Matías M.',
-    category: 2,
+    category: 'arreglos',
     votes: 4,
   },
   {
     title: 'Hechos de inseguridad',
     description: 'Propongo que instalemos una cámara de seguridad.',
     author: 'Laura T.',
-    category: 1,
+    category: 'seguridad',
     votes: 2,
   },
 ];
@@ -80,6 +88,7 @@ export default function Topics() {
 
   const [newTopicVisible, setNewTopicVisible] = useState(false);
   const [liveMeeting, setLiveMeeting] = useState(false);
+  const [filteredTopics, setFilteredTopics] = useState(topicsData);
 
   useEffect(() => {
     if (router.query?.tema) {
@@ -89,6 +98,27 @@ export default function Topics() {
       setLiveMeeting(true);
     }
   }, [router]);
+
+  const handleFilterChange = category => {
+    let newFilteredTopics = filteredTopics;
+
+    if (filteredTopics.some(topic => topic.category === category)) {
+      newFilteredTopics = filteredTopics.filter(
+        topic => topic.category !== category
+      );
+    } else {
+      const topicsToAdd = topicsData.filter(
+        topic => topic.category === category
+      );
+      if (topicsToAdd.length) {
+        topicsToAdd.forEach(topic => {
+          newFilteredTopics.push(topic);
+        });
+      }
+    }
+    setFilteredTopics(JSON.parse(JSON.stringify(newFilteredTopics)));
+  };
+
   return (
     <div>
       <Head>
@@ -121,33 +151,79 @@ export default function Topics() {
                 <li>
                   <Chip
                     label="Arreglos"
-                    onClick={() => {
-                      alert('Botón deshabilitado');
-                    }}
+                    aria-label={'Quitar Arreglos'}
+                    onClick={() => handleFilterChange('arreglos')}
+                    onDelete={() => handleFilterChange('arreglos')}
+                    deleteIcon={
+                      filteredTopics.some(
+                        topic => topic.category === 'arreglos'
+                      ) ? (
+                        <DoneIcon />
+                      ) : (
+                        <></>
+                      )
+                    }
+                    color={
+                      filteredTopics.some(
+                        topic => topic.category === 'arreglos'
+                      )
+                        ? 'primary'
+                        : 'initial'
+                    }
                   />
                 </li>
                 <li>
                   <Chip
                     label="Propuestas"
-                    onClick={() => {
-                      alert('Botón deshabilitado');
-                    }}
-                    onDelete={() => {
-                      alert('Botón deshabilitado');
-                    }}
-                    deleteIcon={<DoneIcon />}
-                    color="primary"
+                    aria-label={'Quitar Propuestas'}
+                    onClick={() => handleFilterChange('propuestas')}
+                    onDelete={() => handleFilterChange('propuestas')}
+                    deleteIcon={
+                      filteredTopics.some(
+                        topic => topic.category === 'propuestas'
+                      ) ? (
+                        <DoneIcon />
+                      ) : (
+                        <></>
+                      )
+                    }
+                    color={
+                      filteredTopics.some(
+                        topic => topic.category === 'propuestas'
+                      )
+                        ? 'primary'
+                        : 'initial'
+                    }
                   />
                 </li>
                 <li>
                   <Chip
                     label="Seguridad"
-                    onClick={() => {
-                      alert('Botón deshabilitado');
-                    }}
+                    aria-label={'Quitar Seguridad'}
+                    onClick={() => handleFilterChange('seguridad')}
+                    onDelete={() => handleFilterChange('seguridad')}
+                    deleteIcon={
+                      filteredTopics.some(
+                        topic => topic.category === 'seguridad'
+                      ) ? (
+                        <DoneIcon />
+                      ) : (
+                        <></>
+                      )
+                    }
+                    color={
+                      filteredTopics.some(
+                        topic => topic.category === 'seguridad'
+                      )
+                        ? 'primary'
+                        : 'initial'
+                    }
                   />
                 </li>
               </ul>
+              <p className="topics-results-title" aria-live="polite">
+                Mostrando {filteredTopics.length} resultado{filteredTopics.length === 1 ? '' : 's'}
+              </p>
             </Container>
           </div>
           <ul className="topics-list">
@@ -158,11 +234,11 @@ export default function Topics() {
                   description="Se corta la luz minimamente 3 veces por semana dejando al edificio sin ascensor, sin agua. Propongo la compra urgente de un grupo electrógeno como solución."
                   author="José M."
                   votes={0}
-                  category={1}
+                  category={'propuestas'}
                 />
               </li>
             )}
-            {topicsData.map(topic => (
+            {filteredTopics.map(topic => (
               <li>
                 <Topic {...topic} />
               </li>

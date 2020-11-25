@@ -22,9 +22,12 @@ const TopicWrapper = styled.article`
     padding-right: 1.4rem;
   }
 
-  h2 {
+  h3 {
     font-size: 0.8rem;
+    margin-left: 0;
     margin-bottom: 0.4rem;
+    text-align: left;
+    text-transform: initial;
   }
 
   .description {
@@ -69,7 +72,7 @@ const Topic = ({ title, description, author, votes }) => {
       <Container>
         <div className="inner">
           <section className="content">
-            {title && <h2>{title}</h2>}
+            {title && <h3>{title}</h3>}
             {description && <p className="description">{description}</p>}
             {author && <p className="author">Vecino: {author}</p>}
             <div className="button-wrapper">
