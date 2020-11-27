@@ -8,9 +8,9 @@ import {
   Card,
   CardContent,
   CardActions,
-  Typography,
   Container,
 } from '@material-ui/core';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 
 import { default as CustomLink } from '../components/Link';
 import Header from '../components/Header';
@@ -59,10 +59,14 @@ const Subtitle = styled.h2`
 `;
 
 const CardTitle = styled.h2`
+  display: flex;
+  align-items: center;
   font-size: 1rem;
   margin-bottom: 0.4rem;
 `;
-
+const CardTitleText = styled.span`
+  margin-left: 0.4rem;
+`;
 const CardDescription = styled.p`
   font-size: 0.7rem;
 `;
@@ -135,7 +139,12 @@ export default function Home() {
             {notificationVisible === 'upcoming-meeting' && (
               <Card>
                 <CardContent>
-                  <CardTitle>¡Próxima reunión de consorcio!</CardTitle>
+                  <CardTitle>
+                    <NotificationsIcon color="primary" />
+                    <CardTitleText>
+                      ¡Próxima reunión de consorcio!
+                    </CardTitleText>
+                  </CardTitle>
                   <CardDescription>
                     Será el día 30 de noviembre a las 19hs. Ya podés proponer
                     temas para debatir ese día.
@@ -165,7 +174,12 @@ export default function Home() {
             {notificationVisible === 'today-meeting' && (
               <Card>
                 <CardContent>
-                  <CardTitle>¡Hoy es la reunión de consorcio!</CardTitle>
+                  <CardTitle>
+                    <NotificationsIcon color="primary" />
+                    <CardTitleText>
+                      ¡Hoy es la reunión de consorcio!
+                    </CardTitleText>
+                  </CardTitle>
                   <CardDescription>
                     La misma se realizará a las 19hs. Finalizó el tiempo de
                     propuesta de temas.
@@ -195,7 +209,12 @@ export default function Home() {
             {notificationVisible === 'resolved' && (
               <Card>
                 <CardContent>
-                  <CardTitle>Se compró el grupo electrógeno</CardTitle>
+                  <CardTitle>
+                    <NotificationsIcon color="primary" />
+                    <CardTitleText>
+                      Se compró el grupo electrógeno
+                    </CardTitleText>
+                  </CardTitle>
                   <CardDescription>
                     Según lo decidido en la reunión, adquirimos un generador
                     GAMMA, con garantía por 3 años.
@@ -225,7 +244,12 @@ export default function Home() {
             {notificationVisible === 'summary' && (
               <Card>
                 <CardContent>
-                  <CardTitle>Resumen de la reunión del 30/11</CardTitle>
+                  <CardTitle>
+                    <NotificationsIcon color="primary" />
+                    <CardTitleText>
+                      Resumen de la reunión del 30/11
+                    </CardTitleText>
+                  </CardTitle>
                   <CardDescription>
                     Mirá los temas que se trataron y las resoluciones.
                   </CardDescription>
