@@ -113,6 +113,10 @@ const FormLegend = styled.legend`
   margin-bottom: 0.6rem;
 `;
 
+const FormControlLabelWrapper = styled.div`
+  margin: 0.75rem 0;
+`;
+
 const ButtonWrapper = styled.div`
   margin-top: 1.2rem;
   flex: 1;
@@ -282,21 +286,48 @@ export default function LiveMeeting() {
                       value={quoteSelected}
                       onChange={e => setQuoteSelected(e.target.value)}
                     >
-                      <FormControlLabel
-                        value="Blackstone SRL"
-                        control={<Radio />}
-                        label="Blackstone SRL: $89886"
-                      />
-                      <FormControlLabel
-                        value="Garbarino"
-                        control={<Radio />}
-                        label="Garbarino: $90450"
-                      />
-                      <FormControlLabel
-                        value="Energy"
-                        control={<Radio />}
-                        label="Energy: $92200"
-                      />
+                      <FormControlLabelWrapper>
+                        <FormControlLabel
+                          value="Blackstone SRL"
+                          control={<Radio />}
+                          label={
+                            <p>
+                              <strong>Blackstone SRL</strong>.<br />
+                              $89886. Marca: GAMMA Elite 6500.
+                              <br />
+                              Propuesto por: vos.
+                            </p>
+                          }
+                        />
+                      </FormControlLabelWrapper>
+                      <FormControlLabelWrapper>
+                        <FormControlLabel
+                          value="Garbarino"
+                          control={<Radio />}
+                          label={
+                            <p>
+                              <strong>Garbarino</strong>.<br />
+                              $90450. Marca Honda 6000w.
+                              <br />
+                              Propuesto por: Juan B.
+                            </p>
+                          }
+                        />
+                      </FormControlLabelWrapper>
+                      <FormControlLabelWrapper>
+                        <FormControlLabel
+                          value="Energy"
+                          control={<Radio />}
+                          label={
+                            <p>
+                              <strong>Energy</strong>.<br />
+                              $92200. Marca Honda 6000w.
+                              <br />
+                              Propuesto por: Matias M.
+                            </p>
+                          }
+                        />
+                      </FormControlLabelWrapper>
                     </RadioGroup>
                   </FormControl>
                   <ButtonWrapper>

@@ -116,7 +116,7 @@ export default function EnterMeeting() {
                   Ingresar ahora
                 </Button>
               </ButtonWrapper>
-              <MeetingDetail>Te están esperando 23 vecinos</MeetingDetail>
+              <MeetingDetail>La reunión comenzó hace 2 minutos</MeetingDetail>
               <MeetingSettings>
                 <SettingWrapper>
                   <IconButton

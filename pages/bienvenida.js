@@ -81,7 +81,7 @@ export default function Welcome() {
                 component={CustomLink}
                 href="/ingresar"
               >
-                Ingresar
+                Iniciar sesión
               </Button>
             </ButtonWrapper>
             <ButtonWrapper>
@@ -97,7 +97,7 @@ export default function Welcome() {
                   width="24"
                   height="24"
                 />
-                <ButtonText>Ingresar con Google</ButtonText>
+                <ButtonText>Iniciar sesión con Google</ButtonText>
               </Button>
             </ButtonWrapper>
             <ButtonWrapper>
@@ -113,7 +113,7 @@ export default function Welcome() {
                   width="12"
                   height="24"
                 />
-                <ButtonText>Ingresar con Facebook</ButtonText>
+                <ButtonText>Iniciar sesión con Facebook</ButtonText>
               </Button>
             </ButtonWrapper>
             <ButtonWrapper>

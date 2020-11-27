@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  margin: 0.8rem auto 2.4rem;
+  margin: 0.8rem auto 0;
 `;
 
 const Title = styled.h1`
@@ -28,9 +28,8 @@ const Title = styled.h1`
 
 const SectionTitle = styled.h2`
   font-size: 1rem;
-  margin: 0 auto;
-  margin-bottom: 1.2rem;
-  text-align: center;
+  margin: 1.5rem 0 1.2rem;
+  text-align: left;
 `;
 
 const CardsList = styled.ul`
@@ -143,7 +142,7 @@ export default function Meetings() {
                 height="121"
               />
             </ImageWrapper>
-            <SectionTitle>Reuniones 2020</SectionTitle>
+            <SectionTitle>Próximas reuniones</SectionTitle>
             <CardsList>
               {newMeetingStatus === 'past' ? (
                 <CardItem>
@@ -219,6 +218,10 @@ export default function Meetings() {
                   </Card>
                 </CardItem>
               )}
+            </CardsList>
+            <SectionTitle>Reuniones realizadas</SectionTitle>
+
+            <CardsList>
               <CardItem>
                 <Card variant="outlined" component="section">
                   <CardInner>

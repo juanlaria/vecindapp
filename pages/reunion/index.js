@@ -22,13 +22,16 @@ const Main = styled.main`
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 
     h2 {
+      text-align: left;
       font-size: 0.8rem;
       margin-bottom: 0.4rem;
+      opacity: 0.87;
+      text-transform: none;
     }
     ul {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: left;
       margin: 0 -0.4rem;
     }
 
@@ -45,9 +48,10 @@ const Main = styled.main`
 
   .topics-results-title {
     font-size: 0.7rem;
-    opacity: 0.75;
-    margin: 1rem auto 0;
-    text-align: center;
+    color: #2400FF;
+    margin: 0.6rem auto 0;
+    text-align: left;
+    text-transform: uppercase;
   }
 `;
 
@@ -87,15 +91,11 @@ export default function Topics() {
   const router = useRouter();
 
   const [newTopicVisible, setNewTopicVisible] = useState(false);
-  const [liveMeeting, setLiveMeeting] = useState(false);
   const [filteredTopics, setFilteredTopics] = useState(topicsData);
 
   useEffect(() => {
     if (router.query?.tema) {
       setNewTopicVisible(true);
-    }
-    if (router.query?.vivo) {
-      setLiveMeeting(true);
     }
   }, [router]);
 
@@ -128,20 +128,6 @@ export default function Topics() {
         <HeaderTitle>Reunión de consorcio</HeaderTitle>
       </Header>
       <Main id="main">
-        {liveMeeting && (
-          <Container>
-            <ButtonWrapper>
-              <Button
-                variant="contained"
-                color="secondary"
-                component={CustomLink}
-                href="/reunion/vivo"
-              >
-                Ir a la reunión en vivo
-              </Button>
-            </ButtonWrapper>
-          </Container>
-        )}
         <h2>Lista de temas</h2>
         <section>
           <div className="filter-header">
@@ -232,7 +218,7 @@ export default function Topics() {
                 <Topic
                   title="Cortes de luz constantes"
                   description="Se corta la luz minimamente 3 veces por semana dejando al edificio sin ascensor, sin agua. Propongo la compra urgente de un grupo electrógeno como solución."
-                  author="José M."
+                  author="José M. (vos)"
                   votes={0}
                   category={'propuestas'}
                 />
