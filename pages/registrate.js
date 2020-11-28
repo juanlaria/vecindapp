@@ -128,7 +128,7 @@ export default function SignIn() {
                   variant="filled"
                   onChange={e => setCity(e.target.value)}
                 >
-                  <MenuItem value={'CABA'}>CABA</MenuItem>
+                  <MenuItem value={'CABA'}>Capital Federal</MenuItem>
                   <MenuItem value={'Vicente López'}>Vicente López</MenuItem>
                   <MenuItem value={'San Isidro'}>San Isidro</MenuItem>
                 </Select>

@@ -91,11 +91,7 @@ export default function EnterMeeting() {
           <Wrapper>
             <TitleWrapper>
               <Title>Reunión de consorcio</Title>
-              <Subtitle>
-                <time dateTime="2020-11-16T22:00:00.000Z">
-                  16 de Noviembre - 19 horas.
-                </time>
-              </Subtitle>
+              <Subtitle>16 de Noviembre - 19 horas.</Subtitle>
             </TitleWrapper>
             <ImageWrapper>
               <Image
@@ -111,7 +107,7 @@ export default function EnterMeeting() {
                   color="primary"
                   variant="contained"
                   component={CustomLink}
-role="link"
+                  role="link"
                   href="/reunion/vivo"
                 >
                   Ingresar ahora

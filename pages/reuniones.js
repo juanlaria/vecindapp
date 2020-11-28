@@ -151,9 +151,8 @@ export default function Meetings() {
                       <CardContent>
                         <CardTitle>Reunión de consorcio</CardTitle>
                         <CardDescription>
-                          <time dateTime="2020-11-30">30 de Noviembre</time>. Se
-                          trataron temas como cortes de luz y humedad en el
-                          hall.
+                          30 de Noviembre. Se trataron temas como cortes de luz
+                          y humedad en el hall.
                         </CardDescription>
                         <CardActions>
                           <ButtonWrapper>
@@ -161,7 +160,7 @@ export default function Meetings() {
                               size="small"
                               color="primary"
                               component={CustomLink}
-role="link"
+                              role="link"
                               href="/reunion/resolucion"
                             >
                               Ver el resumen
@@ -178,26 +177,21 @@ role="link"
                     <CardInner upcoming>
                       <CardDate>
                         <p>
-                          <time dateTime="2020-30-11">
-                            <b>30</b> <span>Noviembre</span>
-                          </time>
+                          <b>30</b> <span>Noviembre</span>
                         </p>
                       </CardDate>
                       <CardContent>
                         <CardTitle main>Reunión de consorcio</CardTitle>
                         <CardDescription>
-                          Se realizará el{' '}
-                          <time dateTime="2020-30-11T22:00:00.000Z">
-                            lunes 30 a las 19 horas
-                          </time>{' '}
-                          de forma remota.
+                          Se realizará el lunes 30 a las 19 horas de forma
+                          remota.
                         </CardDescription>
                         <CardActions>
                           <ButtonWrapper>
                             <Button
                               color="primary"
                               component={CustomLink}
-role="link"
+                              role="link"
                               href="/reunion?vivo=true"
                             >
                               Ir a la lista de temas
@@ -209,7 +203,7 @@ role="link"
                               color="primary"
                               disabled={newMeetingStatus !== 'today'}
                               component={CustomLink}
-role="link"
+                              role="link"
                               href="/reunion/vivo/ingresar"
                             >
                               Ir a la reunión
@@ -231,8 +225,8 @@ role="link"
                     <CardContent>
                       <CardTitle>Reunión extraordinaria</CardTitle>
                       <CardDescription>
-                        <time dateTime="2020-03-23">23 de Marzo</time>. El tema
-                        principal fue la pandemia y el nuevo protocolo.
+                        23 de Marzo. El tema principal fue la pandemia y el
+                        nuevo protocolo.
                       </CardDescription>
                       <CardActions>
                         <ButtonWrapper>
@@ -240,7 +234,7 @@ role="link"
                             size="small"
                             color="primary"
                             component={CustomLink}
-role="link"
+                            role="link"
                             href="/reunion/resolucion"
                           >
                             Ver el resumen
@@ -257,9 +251,8 @@ role="link"
                     <CardContent>
                       <CardTitle>Reunión extraordinaria</CardTitle>
                       <CardDescription>
-                        <time dateTime="2020-02-01">01 de Febrero</time>. El
-                        tema a tratar no fue resuelto y espera resolución
-                        inmediata.
+                        01 de Febrero. El tema a tratar no fue resuelto y espera
+                        resolución inmediata.
                       </CardDescription>
                       <CardActions>
                         <ButtonWrapper>
@@ -267,7 +260,7 @@ role="link"
                             size="small"
                             color="primary"
                             component={CustomLink}
-role="link"
+                            role="link"
                             href="/reunion/resolucion"
                           >
                             Ver el resumen

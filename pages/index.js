@@ -122,7 +122,7 @@ export default function Home() {
             />
           </LogoWrapper>
           <Title>Tu edificio</Title>
-          <Subtitle>Charcas 2777, C.A.B.A.</Subtitle>
+          <Subtitle>Charcas 2777, Capital Federal</Subtitle>
         </BarContent>
       </Header>
       <Main id="main">
