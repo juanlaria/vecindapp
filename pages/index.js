@@ -146,7 +146,7 @@ export default function Home() {
                     </CardTitleText>
                   </CardTitle>
                   <CardDescription>
-                    Será el día 30 de noviembre a las 19hs. Ya podés proponer
+                    Será el día 30 de noviembre a las 19 horas. Ya podés proponer
                     temas para debatir ese día.
                   </CardDescription>
                 </CardContent>
@@ -181,7 +181,7 @@ export default function Home() {
                     </CardTitleText>
                   </CardTitle>
                   <CardDescription>
-                    La misma se realizará a las 19hs. Finalizó el tiempo de
+                    La misma se realizará a las 19 horas. Finalizó el tiempo de
                     propuesta de temas.
                   </CardDescription>
                 </CardContent>

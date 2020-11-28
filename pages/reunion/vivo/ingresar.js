@@ -93,7 +93,7 @@ export default function EnterMeeting() {
               <Title>Reunión de consorcio</Title>
               <Subtitle>
                 <time dateTime="2020-11-16T22:00:00.000Z">
-                  16 de Noviembre - 19 hs.
+                  16 de Noviembre - 19 horas.
                 </time>
               </Subtitle>
             </TitleWrapper>

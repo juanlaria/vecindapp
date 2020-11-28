@@ -187,7 +187,7 @@ export default function Meetings() {
                         <CardDescription>
                           Se realizará el{' '}
                           <time dateTime="2020-30-11T22:00:00.000Z">
-                            lunes 30 a las 19 hs.
+                            lunes 30 a las 19 horas
                           </time>{' '}
                           de forma remota.
                         </CardDescription>

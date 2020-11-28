@@ -250,25 +250,25 @@ export default function LiveMeeting() {
                   </VotingResultsTitle>
                   <ul>
                     <li>
-                      <p>
+                      <p aria-live="polite">
                         Empresa Blackstone SRL:{' '}
                         <b>{voted === 'Blackstone SRL' ? '10' : '9'} votos</b>
                       </p>
                     </li>
-                    <li>
+                    <li aria-live="polite">
                       <p>
                         Garbarino:{' '}
                         <b>{voted === 'Garbarino' ? '7' : '6'} votos</b>
                       </p>
                     </li>
-                    <li>
+                    <li aria-live="polite">
                       <p>
                         Energy: <b>{voted === 'Energy' ? '6' : '5'} votos</b>
                       </p>
                     </li>
                   </ul>
-                  <p>
-                    <small>Votaron: {voted ? '21' : '20'}/40</small>
+                  <p aria-live="polite">
+                    <small>Votaron {voted ? '21' : '20'} de 40 vecinos.</small>
                   </p>
                 </VotingResults>
 
