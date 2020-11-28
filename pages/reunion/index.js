@@ -21,7 +21,7 @@ const Main = styled.main`
     padding-bottom: 1.4rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 
-    h2 {
+    h3 {
       text-align: left;
       font-size: 0.8rem;
       margin-bottom: 0.4rem;
@@ -48,7 +48,7 @@ const Main = styled.main`
 
   .topics-results-title {
     font-size: 0.7rem;
-    color: #2400FF;
+    color: #2400ff;
     margin: 0.6rem auto 0;
     text-align: left;
     text-transform: uppercase;
@@ -67,6 +67,31 @@ const HeaderTitle = styled.h1`
   font-size: 1rem;
   text-transform: uppercase;
   align-self: center;
+`;
+
+const SkipToContent = styled('div')`
+  position: fixed;
+  top: 0;
+  z-index: 1101;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    position: absolute;
+    top: 0;
+    background: var(--color-black);
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 1rem;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    &:focus {
+      transform: translateY(0%);
+    }
+  }
 `;
 
 const topicsData = [
@@ -132,12 +157,18 @@ export default function Topics() {
         <section>
           <div className="filter-header">
             <Container>
-              <h2>Filtrá por categoría</h2>
+              <h3>Filtrá por categoría</h3>
               <ul>
                 <li>
                   <Chip
                     label="Arreglos"
-                    aria-label={'Quitar Arreglos'}
+                    aria-label={
+                      filteredTopics.some(
+                        topic => topic.category === 'arreglos'
+                      )
+                        ? 'Quitar Arreglos'
+                        : 'Agregar Arreglos'
+                    }
                     onClick={() => handleFilterChange('arreglos')}
                     onDelete={() => handleFilterChange('arreglos')}
                     deleteIcon={
@@ -161,7 +192,13 @@ export default function Topics() {
                 <li>
                   <Chip
                     label="Propuestas"
-                    aria-label={'Quitar Propuestas'}
+                    aria-label={
+                      filteredTopics.some(
+                        topic => topic.category === 'propuestas'
+                      )
+                        ? 'Quitar Propuestas'
+                        : 'Agregar Propuestas'
+                    }
                     onClick={() => handleFilterChange('propuestas')}
                     onDelete={() => handleFilterChange('propuestas')}
                     deleteIcon={
@@ -185,7 +222,13 @@ export default function Topics() {
                 <li>
                   <Chip
                     label="Seguridad"
-                    aria-label={'Quitar Seguridad'}
+                    aria-label={
+                      filteredTopics.some(
+                        topic => topic.category === 'seguridad'
+                      )
+                        ? 'Quitar Seguridad'
+                        : 'Agregar Seguridad'
+                    }
                     onClick={() => handleFilterChange('seguridad')}
                     onDelete={() => handleFilterChange('seguridad')}
                     deleteIcon={
@@ -208,8 +251,12 @@ export default function Topics() {
                 </li>
               </ul>
               <p className="topics-results-title" aria-live="polite">
-                Mostrando {filteredTopics.length} resultado{filteredTopics.length === 1 ? '' : 's'}
+                Mostrando {filteredTopics.length} resultado
+                {filteredTopics.length === 1 ? '' : 's'}
               </p>
+              <SkipToContent>
+                <a href="#cta">Saltear lista de resultados</a>
+              </SkipToContent>
             </Container>
           </div>
           <ul className="topics-list">
@@ -231,7 +278,7 @@ export default function Topics() {
             ))}
           </ul>
         </section>
-        <Container>
+        <Container id="cta">
           <ButtonWrapper>
             <Button
               variant="contained"

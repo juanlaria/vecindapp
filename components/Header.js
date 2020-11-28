@@ -102,18 +102,16 @@ const Header = ({ hasMenu, active, children, window }) => {
           <ToolbarInner>
             {hasMenu ? (
               <IconButton
-                edge="start"
                 color="inherit"
-                aria-label="open drawer"
+                aria-label="Menú"
                 onClick={() => setIsDrawerOpen(true)}
               >
                 <MenuIcon />
               </IconButton>
             ) : (
               <IconButton
-                edge="start"
                 color="inherit"
-                aria-label="go back"
+                aria-label="Página anterior"
                 onClick={() => router.back()}
               >
                 <ArrowBackIcon />
@@ -121,8 +119,7 @@ const Header = ({ hasMenu, active, children, window }) => {
             )}
             <Content>{children}</Content>
             <IconButton
-              aria-label="display more actions"
-              edge="end"
+              aria-label="Notificaciones"
               color="inherit"
               onClick={() => alert('Botón deshabilitado')}
             >

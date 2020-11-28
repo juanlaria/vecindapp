@@ -5,6 +5,7 @@ import { Button, Container, Fab } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import Link from './Link';
+import { cloakStyles } from '../shared/styles';
 
 const TopicWrapper = styled.article`
   padding: 0.8rem 0 0.4rem;
@@ -22,7 +23,7 @@ const TopicWrapper = styled.article`
     padding-right: 1.4rem;
   }
 
-  h3 {
+  h4 {
     font-size: 0.8rem;
     margin-left: 0;
     margin-bottom: 0.4rem;
@@ -55,13 +56,17 @@ const TopicWrapper = styled.article`
   .fab-wrapper {
     position: sticky;
     top: 0.6rem;
-    
+
     p {
       font-size: 0.7rem;
       text-align: center;
       margin-top: 0.8rem;
     }
   }
+`;
+
+const Cloak = styled.span`
+  ${cloakStyles}
 `;
 
 const Topic = ({ title, description, author, votes }) => {
@@ -72,12 +77,11 @@ const Topic = ({ title, description, author, votes }) => {
       <Container>
         <div className="inner">
           <section className="content">
-            {title && <h3>{title}</h3>}
+            {title && <h4>{title}</h4>}
             {description && <p className="description">{description}</p>}
             {author && <p className="author">Vecino: {author}</p>}
             <div className="button-wrapper">
               <Button
-                edge="start"
                 size="small"
                 color="primary"
                 onClick={() => alert('Botón deshabilitado')}
@@ -87,7 +91,6 @@ const Topic = ({ title, description, author, votes }) => {
             </div>
             <div className="button-wrapper">
               <Button
-                edge="start"
                 size="small"
                 color="primary"
                 component={Link}
@@ -97,18 +100,20 @@ const Topic = ({ title, description, author, votes }) => {
               </Button>
             </div>
           </section>
-          <section className="fab-section">
+          <div className="fab-section">
             <div className="fab-wrapper">
               <Fab
                 color={isVoted ? 'primary' : 'initial'}
-                aria-label="Votar tema"
+                aria-label={isVoted ? 'Quitar voto' : 'Votar tema'}
                 onClick={() => setIsVoted(!isVoted)}
               >
                 <FavoriteIcon />
               </Fab>
-              <p>{isVoted ? votes + 1 : votes}</p>
+              <p aria-live="polite">
+                {isVoted ? votes + 1 : votes} <Cloak>votos</Cloak>
+              </p>
             </div>
-          </section>
+          </div>
         </div>
       </Container>
     </TopicWrapper>

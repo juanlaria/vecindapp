@@ -26,6 +26,7 @@ export default class MyDocument extends Document {
           href="/favicon/180x180.png"
         />
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <meta charset="utf-8" />
         <Head>
           <style
             data-emotion-css={this.props.ids.join(' ')}
