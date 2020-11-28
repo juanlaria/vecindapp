@@ -13,6 +13,7 @@ import {
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MenuIcon from '@material-ui/icons/Menu';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import CloseIcon from '@material-ui/icons/Close';
 
 import { default as CustomLink } from './Link';
 
@@ -41,7 +42,7 @@ const DrawerNav = styled.nav`
 
 const NavList = styled.ul`
   list-style: none;
-  padding: 1.2rem 0;
+  padding: 3rem 0 1.2rem;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -59,6 +60,12 @@ const NavItem = styled.li`
 const ButtonText = styled.span`
   text-align: left;
   flex: 1;
+`;
+
+const DrawerClose = styled.div`
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 `;
 
 const SkipToContent = styled('div')`
@@ -140,7 +147,26 @@ const Header = ({ hasMenu, active, children, window }) => {
       >
         <DrawerNav>
           <Container>
+            <DrawerClose>
+              <IconButton
+                color="inherit"
+                aria-label="Cerrar menú"
+                onClick={() => setIsDrawerOpen(false)}
+              >
+                <CloseIcon />
+              </IconButton>
+            </DrawerClose>
             <NavList>
+              <NavItem>
+                <Button
+                  color="primary"
+                  component={CustomLink}
+                  role="link"
+                  href="/"
+                >
+                  <ButtonText>Home</ButtonText>
+                </Button>
+              </NavItem>
               <NavItem>
                 <Button
                   color="primary"
@@ -169,6 +195,7 @@ const Header = ({ hasMenu, active, children, window }) => {
                 <Button
                   color="primary"
                   component={CustomLink}
+                  role="link"
                   href="/reuniones"
                 >
                   <ButtonText>Reuniones</ButtonText>
@@ -212,6 +239,16 @@ const Header = ({ hasMenu, active, children, window }) => {
                   onClick={() => alert('Botón deshabilitado')}
                 >
                   <ButtonText>Cerrar sesión</ButtonText>
+                </Button>
+              </NavItem>
+              <NavItem>
+                <Button
+                  color="primary"
+                  component={CustomLink}
+                  role="link"
+                  href="/reuniones"
+                >
+                  <ButtonText>Reuniones</ButtonText>
                 </Button>
               </NavItem>
             </NavList>

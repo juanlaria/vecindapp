@@ -190,6 +190,7 @@ export default function AddQuote() {
               <Button
                 color="primary"
                 component={CustomLink}
+role="link"
                 href="/reunion/presupuestos/agregar-archivo"
                 startIcon={<ControlPointIcon />}
               >
@@ -242,6 +243,7 @@ export default function AddQuote() {
             <Button
               variant="contained"
               component={CustomLink}
+role="link"
               href="/reunion/agregar-tema?presupuesto=true"
               color="primary"
             >

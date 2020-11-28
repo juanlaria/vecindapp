@@ -374,6 +374,7 @@ export default function LiveMeeting() {
                   color="secondary"
                   variant="contained"
                   component={CustomLink}
+role="link"
                   href="/reuniones?hoy=true"
                 >
                   Salir

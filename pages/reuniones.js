@@ -161,6 +161,7 @@ export default function Meetings() {
                               size="small"
                               color="primary"
                               component={CustomLink}
+role="link"
                               href="/reunion/resolucion"
                             >
                               Ver el resumen
@@ -196,6 +197,7 @@ export default function Meetings() {
                             <Button
                               color="primary"
                               component={CustomLink}
+role="link"
                               href="/reunion?vivo=true"
                             >
                               Ir a la lista de temas
@@ -207,6 +209,7 @@ export default function Meetings() {
                               color="primary"
                               disabled={newMeetingStatus !== 'today'}
                               component={CustomLink}
+role="link"
                               href="/reunion/vivo/ingresar"
                             >
                               Ir a la reunión
@@ -237,6 +240,7 @@ export default function Meetings() {
                             size="small"
                             color="primary"
                             component={CustomLink}
+role="link"
                             href="/reunion/resolucion"
                           >
                             Ver el resumen
@@ -263,6 +267,7 @@ export default function Meetings() {
                             size="small"
                             color="primary"
                             component={CustomLink}
+role="link"
                             href="/reunion/resolucion"
                           >
                             Ver el resumen

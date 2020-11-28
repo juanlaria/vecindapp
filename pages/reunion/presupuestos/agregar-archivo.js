@@ -239,6 +239,7 @@ export default function AddFile() {
           <ActionsWrapper>
             <Button
               component={CustomLink}
+role="link"
               color="primary"
               size="small"
               href="/reunion/presupuestos/agregar?archivo=true"

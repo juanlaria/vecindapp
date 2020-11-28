@@ -83,6 +83,7 @@ export default function TopicAdded() {
                   color="primary"
                   variant="contained"
                   component={CustomLink}
+role="link"
                   href="/reunion?tema=true"
                 >
                   Ver lista de temas

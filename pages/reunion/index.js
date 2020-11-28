@@ -166,8 +166,8 @@ export default function Topics() {
                       filteredTopics.some(
                         topic => topic.category === 'arreglos'
                       )
-                        ? 'Quitar Arreglos'
-                        : 'Agregar Arreglos'
+                        ? 'Quitar filtro Arreglos'
+                        : 'Agregar filtro Arreglos'
                     }
                     onClick={() => handleFilterChange('arreglos')}
                     onDelete={() => handleFilterChange('arreglos')}
@@ -196,8 +196,8 @@ export default function Topics() {
                       filteredTopics.some(
                         topic => topic.category === 'propuestas'
                       )
-                        ? 'Quitar Propuestas'
-                        : 'Agregar Propuestas'
+                        ? 'Quitar filtro Propuestas'
+                        : 'Agregar filtro Propuestas'
                     }
                     onClick={() => handleFilterChange('propuestas')}
                     onDelete={() => handleFilterChange('propuestas')}
@@ -226,8 +226,8 @@ export default function Topics() {
                       filteredTopics.some(
                         topic => topic.category === 'seguridad'
                       )
-                        ? 'Quitar Seguridad'
-                        : 'Agregar Seguridad'
+                        ? 'Quitar filtro Seguridad'
+                        : 'Agregar filtro Seguridad'
                     }
                     onClick={() => handleFilterChange('seguridad')}
                     onDelete={() => handleFilterChange('seguridad')}
@@ -284,9 +284,10 @@ export default function Topics() {
               variant="contained"
               color="primary"
               component={CustomLink}
+role="link"
               href="/reunion/agregar-tema"
             >
-              Agregar tema
+              Agregar filtro tema
             </Button>
           </ButtonWrapper>
         </Container>

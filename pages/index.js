@@ -154,6 +154,7 @@ export default function Home() {
                   <ActionsWrapper>
                     <Button
                       component={CustomLink}
+role="link"
                       color="primary"
                       size="small"
                       href="/reuniones"
@@ -189,6 +190,7 @@ export default function Home() {
                   <ActionsWrapper>
                     <Button
                       component={CustomLink}
+role="link"
                       color="primary"
                       size="small"
                       href="/reuniones?hoy=true"
@@ -224,6 +226,7 @@ export default function Home() {
                   <ActionsWrapper>
                     <Button
                       component={CustomLink}
+role="link"
                       color="primary"
                       size="small"
                       href="/reunion/resolucion"
@@ -258,6 +261,7 @@ export default function Home() {
                   <ActionsWrapper>
                     <Button
                       component={CustomLink}
+role="link"
                       color="primary"
                       size="small"
                       href="/reuniones?pasada=true"
@@ -280,6 +284,7 @@ export default function Home() {
                 variant="contained"
                 color="primary"
                 component={CustomLink}
+role="link"
                 href={`/reuniones${
                   notificationVisible === 'today-meeting' ? '?hoy=true' : ''
                 }${notificationVisible === 'resolved' ? '?pasada=true' : ''}${

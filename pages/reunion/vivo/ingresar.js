@@ -111,6 +111,7 @@ export default function EnterMeeting() {
                   color="primary"
                   variant="contained"
                   component={CustomLink}
+role="link"
                   href="/reunion/vivo"
                 >
                   Ingresar ahora

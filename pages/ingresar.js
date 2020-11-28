@@ -91,6 +91,7 @@ export default function SignIn() {
             <Button
               variant="contained"
               component={CustomLink}
+role="link"
               href="/?proxima=true"
               color="primary"
             >

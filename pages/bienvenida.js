@@ -79,6 +79,7 @@ export default function Welcome() {
                 variant="contained"
                 color="primary"
                 component={CustomLink}
+role="link"
                 href="/ingresar"
               >
                 Iniciar sesión
@@ -89,6 +90,7 @@ export default function Welcome() {
                 variant="outlined"
                 color="primary"
                 component={CustomLink}
+role="link"
                 href="/"
               >
                 <Image
@@ -105,6 +107,7 @@ export default function Welcome() {
                 variant="outlined"
                 color="primary"
                 component={CustomLink}
+role="link"
                 href="/"
               >
                 <Image
@@ -117,7 +120,8 @@ export default function Welcome() {
               </Button>
             </ButtonWrapper>
             <ButtonWrapper>
-              <Button color="primary" component={CustomLink} href="/registrate">
+              <Button color="primary" component={CustomLink}
+role="link" href="/registrate">
                 Registrate
               </Button>
             </ButtonWrapper>

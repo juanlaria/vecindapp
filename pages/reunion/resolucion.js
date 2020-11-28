@@ -100,6 +100,7 @@ export default function Resolution() {
                 <Button
                   color="primary"
                   component={CustomLink}
+role="link"
                   href="/reunion/factura"
                 >
                   Ver factura
