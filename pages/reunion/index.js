@@ -106,7 +106,7 @@ const topicsData = [
   {
     title: 'Hechos de inseguridad',
     description: 'Propongo que instalemos una cámara de seguridad.',
-    author: 'Laura T.',
+    author: 'Lorenzo T.',
     category: 'seguridad',
     votes: 2,
   },
