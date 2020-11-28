@@ -246,9 +246,9 @@ const Header = ({ hasMenu, active, children, window }) => {
                   color="primary"
                   component={CustomLink}
                   role="link"
-                  href="/reuniones"
+                  href="/accesibilidad"
                 >
-                  <ButtonText>Reuniones</ButtonText>
+                  <ButtonText>Accesibilidad</ButtonText>
                 </Button>
               </NavItem>
             </NavList>

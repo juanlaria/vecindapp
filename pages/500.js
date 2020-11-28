@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Header from '../components/Header'
 
 export default function Error404() {
   return (
@@ -7,7 +8,7 @@ export default function Error404() {
       <Head>
         <title>Error interno. Vecindapp</title>
       </Head>
-      <header>Header</header>
+      <Header hasMenu={true}/>
       <main id="main" style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <h1>Error interno.</h1>
         <Link href="/">
