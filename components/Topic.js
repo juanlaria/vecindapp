@@ -104,7 +104,11 @@ const Topic = ({ title, description, author, votes }) => {
             <div className="fab-wrapper">
               <Fab
                 color={isVoted ? 'primary' : 'initial'}
-                aria-label={isVoted ? 'Quitar voto' : 'Votar tema'}
+                aria-label={
+                  isVoted
+                    ? `Quitar voto a "${title}"`
+                    : `Votar tema a "${title}"`
+                }
                 onClick={() => setIsVoted(!isVoted)}
               >
                 <FavoriteIcon />
