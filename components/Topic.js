@@ -106,8 +106,8 @@ const Topic = ({ title, description, author, votes }) => {
                 color={isVoted ? 'primary' : 'initial'}
                 aria-label={
                   isVoted
-                    ? `Quitar voto a "${title}"`
-                    : `Votar tema a "${title}"`
+                    ? `Quitar apoyo a "${title}"`
+                    : `Apoyo tema a "${title}"`
                 }
                 onClick={() => setIsVoted(!isVoted)}
               >
