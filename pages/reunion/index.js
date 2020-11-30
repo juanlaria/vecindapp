@@ -287,7 +287,7 @@ export default function Topics() {
 role="link"
               href="/reunion/agregar-tema"
             >
-              Agregar filtro tema
+              Agregar tema
             </Button>
           </ButtonWrapper>
         </Container>
