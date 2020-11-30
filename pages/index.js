@@ -111,7 +111,7 @@ export default function Home() {
       <Head>
         <title>Vecindapp</title>
       </Head>
-      <Header>
+      <Header current="home">
         <BarContent>
           <LogoWrapper>
             <Image
@@ -146,15 +146,15 @@ export default function Home() {
                     </CardTitleText>
                   </CardTitle>
                   <CardDescription>
-                    Será el día 30 de noviembre a las 19 horas. Ya podés proponer
-                    temas para debatir ese día.
+                    Será el día 30 de noviembre a las 19 horas. Ya podés
+                    proponer temas para debatir ese día.
                   </CardDescription>
                 </CardContent>
                 <CardActions>
                   <ActionsWrapper>
                     <Button
                       component={CustomLink}
-role="link"
+                      role="link"
                       color="primary"
                       size="small"
                       href="/reuniones"
@@ -190,7 +190,7 @@ role="link"
                   <ActionsWrapper>
                     <Button
                       component={CustomLink}
-role="link"
+                      role="link"
                       color="primary"
                       size="small"
                       href="/reuniones?hoy=true"
@@ -226,7 +226,7 @@ role="link"
                   <ActionsWrapper>
                     <Button
                       component={CustomLink}
-role="link"
+                      role="link"
                       color="primary"
                       size="small"
                       href="/reunion/resolucion"
@@ -261,7 +261,7 @@ role="link"
                   <ActionsWrapper>
                     <Button
                       component={CustomLink}
-role="link"
+                      role="link"
                       color="primary"
                       size="small"
                       href="/reuniones?pasada=true"
@@ -284,7 +284,7 @@ role="link"
                 variant="contained"
                 color="primary"
                 component={CustomLink}
-role="link"
+                role="link"
                 href={`/reuniones${
                   notificationVisible === 'today-meeting' ? '?hoy=true' : ''
                 }${notificationVisible === 'resolved' ? '?pasada=true' : ''}${

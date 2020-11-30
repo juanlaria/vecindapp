@@ -93,7 +93,7 @@ const SkipToContent = styled('div')`
   }
 `;
 
-const Header = ({ hasMenu, active, children, window }) => {
+const Header = ({ hasMenu, current, children, window }) => {
   const router = useRouter();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const container =
@@ -159,6 +159,7 @@ const Header = ({ hasMenu, active, children, window }) => {
             <NavList>
               <NavItem>
                 <Button
+                  aria-current={current === 'home'}
                   color="primary"
                   component={CustomLink}
                   role="link"
@@ -169,6 +170,7 @@ const Header = ({ hasMenu, active, children, window }) => {
               </NavItem>
               <NavItem>
                 <Button
+                  aria-current={false}
                   color="primary"
                   onClick={() => alert('Botón deshabilitado')}
                 >
@@ -177,6 +179,7 @@ const Header = ({ hasMenu, active, children, window }) => {
               </NavItem>
               <NavItem>
                 <Button
+                  aria-current={false}
                   color="primary"
                   onClick={() => alert('Botón deshabilitado')}
                 >
@@ -185,6 +188,7 @@ const Header = ({ hasMenu, active, children, window }) => {
               </NavItem>
               <NavItem>
                 <Button
+                  aria-current={false}
                   color="primary"
                   onClick={() => alert('Botón deshabilitado')}
                 >
@@ -193,6 +197,7 @@ const Header = ({ hasMenu, active, children, window }) => {
               </NavItem>
               <NavItem>
                 <Button
+                  aria-current={current === 'meetings'}
                   color="primary"
                   component={CustomLink}
                   role="link"
@@ -203,6 +208,7 @@ const Header = ({ hasMenu, active, children, window }) => {
               </NavItem>
               <NavItem>
                 <Button
+                  aria-current={false}
                   color="primary"
                   onClick={() => alert('Botón deshabilitado')}
                 >
@@ -211,6 +217,7 @@ const Header = ({ hasMenu, active, children, window }) => {
               </NavItem>
               <NavItem>
                 <Button
+                  aria-current={false}
                   color="primary"
                   onClick={() => alert('Botón deshabilitado')}
                 >
@@ -219,6 +226,7 @@ const Header = ({ hasMenu, active, children, window }) => {
               </NavItem>
               <NavItem>
                 <Button
+                  aria-current={false}
                   color="primary"
                   onClick={() => alert('Botón deshabilitado')}
                 >
@@ -227,6 +235,7 @@ const Header = ({ hasMenu, active, children, window }) => {
               </NavItem>
               <NavItem>
                 <Button
+                  aria-current={false}
                   color="primary"
                   onClick={() => alert('Botón deshabilitado')}
                 >
@@ -235,6 +244,7 @@ const Header = ({ hasMenu, active, children, window }) => {
               </NavItem>
               <NavItem>
                 <Button
+                  aria-current={false}
                   color="primary"
                   onClick={() => alert('Botón deshabilitado')}
                 >
@@ -243,6 +253,7 @@ const Header = ({ hasMenu, active, children, window }) => {
               </NavItem>
               <NavItem>
                 <Button
+                  aria-current={current === ''}
                   color="primary"
                   component={CustomLink}
                   role="link"
@@ -263,14 +274,14 @@ Header.propTypes = {
   hasMenu: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   window: PropTypes.func,
-  active: PropTypes.string,
+  current: PropTypes.string,
 };
 
 Header.defaultProps = {
   hasMenu: true,
   window: undefined,
   children: undefined,
-  active: undefined,
+  current: undefined,
 };
 
 export default Header;

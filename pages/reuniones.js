@@ -128,7 +128,7 @@ export default function Meetings() {
       <Head>
         <title>Vecindapp</title>
       </Head>
-      <Header>
+      <Header current="meetings">
         <Title>Reuniones</Title>
       </Header>
       <Main id="main">
