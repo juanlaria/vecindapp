@@ -151,7 +151,7 @@ const SettingWrapper = styled.div`
   margin-left: 0.4rem;
 
   .MuiIconButton-root {
-    color: #fff;
+    color: #fff !important;
   }
 `;
 

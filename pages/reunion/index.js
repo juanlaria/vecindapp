@@ -116,11 +116,15 @@ export default function Topics() {
   const router = useRouter();
 
   const [newTopicVisible, setNewTopicVisible] = useState(false);
+  const [isMeetingToday, setIsMeetingToday] = useState(false);
   const [filteredTopics, setFilteredTopics] = useState(topicsData);
 
   useEffect(() => {
     if (router.query?.tema) {
       setNewTopicVisible(true);
+    }
+    if (router.query?.vivo) {
+      setIsMeetingToday(true);
     }
   }, [router]);
 
@@ -286,6 +290,7 @@ export default function Topics() {
               component={CustomLink}
 role="link"
               href="/reunion/agregar-tema"
+              disabled={isMeetingToday}
             >
               Agregar tema
             </Button>
